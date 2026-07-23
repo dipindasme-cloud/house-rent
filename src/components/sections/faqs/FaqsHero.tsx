@@ -12,8 +12,8 @@ import {
 
 export function FaqsHero() {
   return (
-    <section className="relative min-h-[70svh] flex items-center overflow-hidden px-[1.5rem] md:px-[3rem] lg:px-[6rem] pt-[8rem] pb-[4rem]">
-      <div className="absolute inset-0 z-10 bg-black/45" />
+    <section className="relative min-h-[70svh] flex items-center overflow-hidden pt-32 pb-16">
+      <div className="absolute inset-0 z-10 bg-(--primary)/45" />
 
       <motion.div
         className="absolute inset-0"
@@ -31,31 +31,33 @@ export function FaqsHero() {
         />
       </motion.div>
 
-      <div className="relative z-20 w-full max-w-[80rem] mx-auto">
-        <motion.div
-          className="flex flex-col items-start gap-[1.5rem] max-w-[40rem]"
-          variants={staggerContainer}
-          initial="hidden"
-          animate="visible"
-          viewport={sectionViewport}
-        >
-          <motion.h1
-            variants={fadeInUp}
-            transition={defaultTransition}
-            className="text-white text-[2.75rem] md:text-[3.5rem] lg:text-[4.25rem] font-bold leading-[1.1] tracking-[-0.02em]"
+      <div className="px-6 md:px-12 lg:px-24 w-full">
+        <div className="relative z-20 w-full max-w-7xl mx-auto">
+          <motion.div
+            className="flex flex-col items-start gap-6 max-w-2xl"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+            viewport={sectionViewport}
           >
-            Frequently asked questions
-          </motion.h1>
+            <motion.h1
+              variants={fadeInUp}
+              transition={defaultTransition}
+              className="text-(--primary-foreground) text-display"
+            >
+              Frequently asked questions
+            </motion.h1>
 
-          <motion.p
-            variants={fadeInLeft}
-            transition={defaultTransition}
-            className="text-[1rem] md:text-[1.125rem] text-white/70 leading-relaxed max-w-[32rem]"
-          >
-            Everything you need to know about our rental services, listings,
-            and how we work
-          </motion.p>
-        </motion.div>
+            <motion.p
+              variants={fadeInLeft}
+              transition={defaultTransition}
+              className="text-body-lg text-(--primary-foreground) max-w-lg"
+            >
+              Everything you need to know about our rental services, listings,
+              and how we work
+            </motion.p>
+          </motion.div>
+        </div>
       </div>
     </section>
   );

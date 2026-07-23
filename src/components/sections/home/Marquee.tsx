@@ -65,8 +65,8 @@ export function Marquee() {
   });
 
   return (
-    <section className="w-full overflow-hidden py-[4rem] bg-surface-secondary border-y border-border">
-      <div className="max-w-[80rem] mx-auto">
+    <section className="w-full overflow-hidden py-16 bg-(--muted) border-y border-(--border)">
+      <div className="max-w-7xl mx-auto">
         <div className="relative overflow-hidden">
           <ul
             ref={containerRef}
@@ -77,12 +77,12 @@ export function Marquee() {
               tags.map((tag, tagIdx) => (
                 <li
                   key={`${groupIdx}-${tagIdx}`}
-                  className="flex items-center gap-[0.625rem] shrink-0 border border-border rounded-[0.625rem] px-[1.125rem] py-[0.625rem] bg-surface"
+                  className="flex items-center gap-[0.625rem] shrink-0 border border-(--border) rounded-lg px-[1.125rem] py-[0.625rem] bg-(--surface)"
                 >
-                  <span className="text-text-primary shrink-0">
+                  <span className="text-(--foreground) shrink-0">
                     <TagIcon type={tag.icon} />
                   </span>
-                  <span className="text-[0.9375rem] md:text-[1rem] font-semibold text-text-primary leading-none whitespace-nowrap">
+                  <span className="text-body font-semibold whitespace-nowrap">
                     {tag.label}
                   </span>
                 </li>

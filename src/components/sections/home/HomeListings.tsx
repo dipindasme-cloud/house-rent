@@ -19,7 +19,7 @@ const LISTINGS: ListingItem[] = [
   {
     id: "aur-001",
     imageSrc: "/images/properties/villa-palm-grove.jpg",
-    price: 47500000,
+    price: 475000,
     type: "Villa",
     title: "Palm Grove Estate",
     location: "Juhu, Mumbai",
@@ -30,7 +30,7 @@ const LISTINGS: ListingItem[] = [
   {
     id: "aur-002",
     imageSrc: "/images/properties/sky-penthouse.jpg",
-    price: 32000000,
+    price: 325000,
     type: "Penthouse",
     title: "The Sky Residence",
     location: "Bandra West, Mumbai",
@@ -41,7 +41,7 @@ const LISTINGS: ListingItem[] = [
   {
     id: "aur-003",
     imageSrc: "/images/properties/green-acres.jpg",
-    price: 18500000,
+    price: 189000,
     type: "Apartment",
     title: "Green Acres Towers",
     location: "Whitefield, Bangalore",
@@ -52,7 +52,7 @@ const LISTINGS: ListingItem[] = [
   {
     id: "aur-004",
     imageSrc: "/images/properties/riverfront-villa.jpg",
-    price: 68000000,
+    price: 489000,
     type: "Villa",
     title: "Riverfront Haven",
     location: "Pimpri-Chinchwad, Pune",
@@ -63,7 +63,7 @@ const LISTINGS: ListingItem[] = [
   {
     id: "aur-005",
     imageSrc: "/images/properties/golf-course-apartment.jpg",
-    price: 24500000,
+    price: 255000,
     type: "Apartment",
     title: "Golf Course Residency",
     location: "Sector 54, Gurugram",
@@ -74,7 +74,7 @@ const LISTINGS: ListingItem[] = [
   {
     id: "aur-006",
     imageSrc: "/images/properties/beach-penthouse.jpg",
-    price: 55000000,
+    price: 425000,
     type: "Penthouse",
     title: "Bayview Penthouse",
     location: "Calangute, Goa",
@@ -95,29 +95,30 @@ export function HomeListings() {
       : LISTINGS.filter((item) => item.type === activeCategory);
 
   return (
-    <section className="py-[4rem] px-[1.5rem] md:px-[3rem] lg:px-[6rem]">
-      <div className="max-w-[80rem] mx-auto flex flex-col gap-[2.5rem]">
-        <header className="flex flex-col md:flex-row md:items-end justify-between gap-[1.25rem]">
-          <div className="flex flex-col gap-[0.5rem]">
-            <span className="text-brand-600 text-[0.8125rem] font-semibold tracking-[0.125em] uppercase leading-none">
+    <section className="py-16">
+      <div className="px-6 md:px-12 lg:px-24">
+        <div className="max-w-7xl mx-auto flex flex-col gap-10">
+        <header className="flex flex-col md:flex-row md:items-end justify-between gap-5">
+          <div className="flex flex-col gap-2">
+            <span className="text-eyebrow text-(--accent-rent)">
               Featured Properties
             </span>
-            <h2 className="text-text-primary text-[1.75rem] md:text-[2.25rem] font-bold leading-tight">
+            <h2 className="text-h2">
               Handpicked Luxury<br className="hidden sm:block" />
-              <span className="text-luxury-500"> Estates</span>
+              <span className="text-(--accent-rent)"> Estates</span>
             </h2>
           </div>
 
-          <div className="flex items-center gap-[0.375rem] flex-wrap">
+          <div className="flex items-center gap-1.5 flex-wrap">
             {CATEGORIES.map((cat) => (
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
                 className={
-                  `text-[0.8125rem] font-medium leading-none py-[0.5rem] px-[1rem] rounded-[0.5rem] transition-all duration-200 cursor-pointer ` +
-                  (activeCategory === cat
-                    ? "bg-brand-600 text-white"
-                    : "bg-surface-secondary text-text-secondary border border-border hover:bg-luxury-100")
+                  `text-caption py-2 px-4 rounded-lg transition-all duration-200 cursor-pointer ` +
+                    (activeCategory === cat
+                      ? "bg-(--primary) text-(--primary-foreground)"
+                      : "bg-(--muted) text-(--muted-foreground) border border-(--border) hover:bg-(--surface-hover)")
                 }
               >
                 {cat === "All" ? "All" : cat}
@@ -126,7 +127,7 @@ export function HomeListings() {
           </div>
         </header>
 
-        <div className="flex flex-wrap gap-[1.5rem]">
+        <div className="flex flex-wrap gap-6">
           {filtered.map((item) => (
             <div
               key={item.id}
@@ -145,6 +146,7 @@ export function HomeListings() {
             </div>
           ))}
         </div>
+      </div>
       </div>
     </section>
   );

@@ -88,14 +88,15 @@ export function AboutAwards() {
 
   return (
     <section className="relative overflow-hidden">
-      <div className="absolute inset-0 bg-[#1e1b4b]" />
+      <div className="absolute inset-0 bg-(--primary)" />
       <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }} />
 
-      <div className="relative z-10 px-[1.5rem] md:px-[3rem] lg:px-[6rem] py-[4rem] md:py-[6rem]">
-        <div className="max-w-[80rem] mx-auto flex flex-col gap-[4rem]">
+      <div className="relative z-10 py-16 md:py-24">
+        <div className="px-6 md:px-12 lg:px-24">
+          <div className="max-w-7xl mx-auto flex flex-col gap-[4rem]">
           <motion.div
             ref={statsRef}
-            className="grid grid-cols-2 md:grid-cols-4 gap-[2rem] md:gap-[3rem]"
+            className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12"
             initial="hidden"
             whileInView="visible"
             viewport={sectionViewport}
@@ -106,9 +107,9 @@ export function AboutAwards() {
                 key={stat.label}
                 variants={fadeInUp}
                 transition={defaultTransition}
-                className="flex flex-col items-center gap-[0.5rem] text-center"
+                className="flex flex-col items-center gap-2 text-center"
               >
-                <span className="text-[2.5rem] md:text-[3.25rem] text-white font-bold leading-none tracking-[-0.02em]">
+                <span className="text-display text-(--primary-foreground)">
                   <AnimatedCounter
                     target={stat.value}
                     suffix={stat.suffix}
@@ -116,17 +117,17 @@ export function AboutAwards() {
                     inView={statsInView}
                   />
                 </span>
-                <span className="text-[0.875rem] text-indigo-200 font-medium leading-snug max-w-[10rem]">
+                <span className="text-caption max-w-[10rem]">
                   {stat.label}
                 </span>
               </motion.div>
             ))}
           </motion.div>
 
-          <div className="w-full h-[1px] bg-indigo-400/20" />
+          <div className="w-full h-px bg-(--border)" />
 
           <motion.div
-            className="flex flex-col gap-[2.5rem]"
+            className="flex flex-col gap-10"
             initial="hidden"
             whileInView="visible"
             viewport={sectionViewport}
@@ -135,43 +136,44 @@ export function AboutAwards() {
             <motion.div
               variants={fadeInUp}
               transition={defaultTransition}
-              className="flex flex-col items-center gap-[1.25rem] text-center"
+              className="flex flex-col items-center gap-5 text-center"
             >
-              <span className="text-[0.8125rem] text-indigo-300 font-semibold tracking-[0.125em] uppercase leading-none">
+              <span className="text-eyebrow text-(--muted-foreground)">
                 Recognition
               </span>
-              <h2 className="text-[2rem] md:text-[2.5rem] text-white font-bold leading-[1.15] tracking-[-0.02em]">
+              <h2 className="text-h1 text-(--primary-foreground)">
                 Awards & achievements
               </h2>
             </motion.div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-[1.5rem]">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
               {awards.map((award, index) => (
                 <motion.div
                   key={award.title}
                   variants={[fadeInLeft, fadeInUp, fadeInRight][index]}
                   transition={{ ...defaultTransition, delay: index * 0.1 }}
-                  className="group relative flex flex-col gap-[1rem] p-[1.5rem] md:p-[2rem] bg-indigo-500/10 backdrop-blur-[0.5rem] rounded-[1.25rem] border border-indigo-400/20 hover:bg-indigo-500/20 hover:border-indigo-400/30 transition-all duration-300"
+                  className="group relative flex flex-col gap-4 p-6 md:p-8 bg-(--muted) backdrop-blur-[0.5rem] rounded-3xl border border-(--border) hover:bg-(--surface-hover) hover:border-(--border) transition-all duration-300"
                 >
-                  <div className="absolute top-0 right-0 w-[4rem] h-[4rem] bg-indigo-400/20 rounded-bl-[1.25rem] rounded-tr-[1.25rem] flex items-center justify-center">
-                    <svg className="w-[1.5rem] h-[1.5rem] text-indigo-300" viewBox="0 0 24 24" fill="currentColor">
+                    <div className="absolute top-0 right-0 w-16 h-16 bg-(--muted) rounded-bl-[1.25rem] rounded-tr-[1.25rem] flex items-center justify-center">
+                    <svg className="w-6 h-6 text-(--muted-foreground)" viewBox="0 0 24 24" fill="currentColor">
                       <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
                     </svg>
                   </div>
 
-                  <span className="text-[0.75rem] text-indigo-300 font-semibold tracking-[0.125em] uppercase leading-none">
+                  <span className="text-eyebrow">
                     {award.year}
                   </span>
-                  <h3 className="text-[1.125rem] md:text-[1.25rem] text-white font-bold leading-snug pr-[3rem]">
+                  <h3 className="text-h3 text-(--primary-foreground) pr-12">
                     {award.title}
                   </h3>
-                  <p className="text-[0.875rem] text-indigo-200/60 leading-relaxed m-0">
+                  <p className="text-caption text-(--primary-foreground) leading-relaxed m-0">
                     {award.description}
                   </p>
                 </motion.div>
               ))}
             </div>
           </motion.div>
+          </div>
         </div>
       </div>
     </section>

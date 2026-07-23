@@ -122,21 +122,22 @@ export function WhyChooseUs() {
   }, []);
 
   return (
-    <section className="px-[1.5rem] md:px-[3rem] lg:px-[6rem] py-[4rem] md:py-[6rem]">
-      <motion.div
-        variants={staggerContainer}
-        initial="hidden"
-        whileInView="visible"
-        viewport={sectionViewport}
-        className="max-w-[80rem] mx-auto flex flex-col gap-[1rem]"
+    <section className="py-16 md:py-24">
+      <div className="px-6 md:px-12 lg:px-24">
+        <motion.div
+          variants={staggerContainer}
+          initial="hidden"
+          whileInView="visible"
+          viewport={sectionViewport}
+          className="max-w-7xl mx-auto flex flex-col gap-4"
       >
-        <div className="flex flex-col items-start gap-[1rem] text-left">
-          <span className="text-[0.8125rem] text-brand-600 font-semibold tracking-[0.125em] uppercase leading-none">
+        <div className="flex flex-col items-start gap-4 text-left">
+          <span className="text-eyebrow text-(--accent-rent)">
             Why Choose Us?
           </span>
 
           <motion.h2
-            className="text-[2rem] md:text-[2.5rem] text-text-primary font-bold leading-[1.15] tracking-[-0.02em] max-w-[32rem]"
+            className="text-h1 max-w-lg"
             initial="hidden"
             whileInView="visible"
             viewport={sectionViewport}
@@ -158,7 +159,7 @@ export function WhyChooseUs() {
         <motion.div
           variants={fadeInUp}
           transition={{ ...defaultTransition, delay: 0.2 }}
-          className="relative w-full overflow-hidden rounded-[1rem] h-[16rem] md:h-[24rem] lg:h-[28rem]"
+          className="relative w-full overflow-hidden rounded-2xl h-[16rem] md:h-[24rem] lg:h-[28rem]"
         >
           <AnimatePresence>
             <motion.div
@@ -179,17 +180,17 @@ export function WhyChooseUs() {
             </motion.div>
           </AnimatePresence>
 
-          <div className="absolute inset-x-0 bottom-0 h-[5rem] bg-gradient-to-t from-black/50 to-transparent pointer-events-none" />
+          <div className="absolute inset-x-0 bottom-0 h-20 bg-gradient-to-t from-(--primary)/50 to-transparent pointer-events-none" />
 
-          <div className="absolute bottom-[1.5rem] left-1/2 -translate-x-1/2 flex items-center gap-[0.5rem]">
+          <div className="absolute bottom-6 left-1/2 -translate-x-1/2 flex items-center gap-2">
             {carouselSlides.map((_, i) => (
               <button
                 key={i}
                 onClick={() => setCurrent(i)}
                 className={`rounded-full transition-all duration-300 cursor-pointer ${
                   i === current
-                    ? "w-[1.5rem] h-[0.5rem] bg-white"
-                    : "w-[0.5rem] h-[0.5rem] bg-white/50 hover:bg-white/70"
+                    ? "w-6 h-2 bg-(--surface)"
+                    : "w-2 h-2 bg-(--surface)/50 hover:bg-(--surface)/70"
                 }`}
                 aria-label={`Go to slide ${i + 1}`}
               />
@@ -199,7 +200,7 @@ export function WhyChooseUs() {
 
         <motion.div
           variants={staggerContainer}
-          className="grid grid-cols-1 md:grid-cols-3 gap-[1.5rem]"
+          className="grid grid-cols-1 md:grid-cols-3 gap-6"
         >
           {features.map((feature, index) => (
             <motion.div
@@ -220,16 +221,16 @@ export function WhyChooseUs() {
                 },
               }}
               transition={defaultTransition}
-              className="flex flex-col gap-[1rem] bg-white rounded-[1rem] border border-border p-[1.5rem] md:p-[2rem]"
+              className="flex flex-col gap-4 bg-(--surface) rounded-2xl border border-(--border) p-6 md:p-8"
             >
-              <span className="flex items-center justify-center w-[3rem] h-[3rem] bg-brand-600 text-white rounded-[0.375rem] shrink-0">
+              <span className="flex items-center justify-center w-12 h-12 bg-(--primary) text-(--primary-foreground) rounded-md shrink-0">
                 {feature.icon}
               </span>
-              <div className="flex flex-col gap-[0.5rem]">
-                <h3 className="text-[1.125rem] md:text-[1.25rem] text-text-primary font-semibold leading-snug">
+              <div className="flex flex-col gap-2">
+                <h3 className="text-h3">
                   {feature.title}
                 </h3>
-                <p className="text-[0.9375rem] text-text-secondary leading-relaxed">
+                <p className="text-body">
                   {feature.description}
                 </p>
               </div>
@@ -237,6 +238,7 @@ export function WhyChooseUs() {
           ))}
         </motion.div>
       </motion.div>
+      </div>
     </section>
   );
 }

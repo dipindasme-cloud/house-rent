@@ -14,7 +14,7 @@ const contactDetails = [
   {
     icon: (
       <svg
-        className="w-[1.5rem] h-[1.5rem]"
+        className="w-6 h-6"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -30,7 +30,7 @@ const contactDetails = [
   {
     icon: (
       <svg
-        className="w-[1.5rem] h-[1.5rem]"
+        className="w-6 h-6"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -47,7 +47,7 @@ const contactDetails = [
   {
     icon: (
       <svg
-        className="w-[1.5rem] h-[1.5rem]"
+        className="w-6 h-6"
         viewBox="0 0 24 24"
         fill="none"
         stroke="currentColor"
@@ -66,39 +66,39 @@ const contactDetails = [
 export function ContactDetails() {
   return (
     <motion.div
-      className="flex flex-col gap-[2rem]"
+      className="flex flex-col gap-8"
       initial="hidden"
       whileInView="visible"
       viewport={sectionViewport}
       variants={staggerContainer}
     >
       <motion.div variants={fadeInUp} transition={defaultTransition}>
-        <h3 className="text-[1.5rem] text-text-primary font-bold leading-snug">
+        <h3 className="text-h2">
           Get in touch
         </h3>
-        <p className="text-[0.9375rem] text-text-secondary leading-relaxed mt-[0.5rem]">
+        <p className="text-body mt-2">
           Have questions? Reach out to us directly or fill the form to schedule
           a visit.
         </p>
       </motion.div>
 
-      <div className="flex flex-col gap-[1rem]">
+      <div className="flex flex-col gap-4">
         {contactDetails.map((item, index) => (
           <motion.a
             key={item.label}
             href={item.href}
             variants={[fadeInLeft, fadeInUp, fadeInRight][index]}
             transition={defaultTransition}
-            className="flex items-center gap-[1rem] p-[1.25rem] bg-surface border border-border rounded-[0.75rem] transition-all duration-200 hover:border-brand-400 hover:shadow-[0_0_0_0.125rem_rgba(79,70,229,0.1)] no-underline"
+            className="flex items-center gap-4 p-5 bg-(--surface) border border-(--border) rounded-xl transition-all duration-200 hover:border-(--border) no-underline"
           >
-            <div className="w-[3rem] h-[3rem] rounded-[0.75rem] bg-brand-50 text-brand-600 flex items-center justify-center shrink-0">
+            <div className="w-12 h-12 rounded-xl bg-(--muted) text-(--accent-rent) flex items-center justify-center shrink-0">
               {item.icon}
             </div>
-            <div className="flex flex-col gap-[0.25rem]">
-              <span className="text-[0.75rem] text-text-muted font-medium uppercase tracking-[0.05em]">
+            <div className="flex flex-col gap-1">
+              <span className="text-caption uppercase tracking-[0.05em]">
                 {item.label}
               </span>
-              <span className="text-[0.9375rem] text-text-primary font-semibold">
+              <span className="text-[0.9375rem] text-(--foreground) font-semibold">
                 {item.value}
               </span>
             </div>
@@ -109,11 +109,11 @@ export function ContactDetails() {
       <motion.div
         variants={fadeInUp}
         transition={{ ...defaultTransition, delay: 0.3 }}
-        className="p-[1.5rem] bg-brand-50 border border-brand-100 rounded-[0.75rem]"
+        className="p-6 bg-(--muted) border border-(--border) rounded-xl"
       >
-        <div className="flex items-start gap-[0.75rem]">
+        <div className="flex items-start gap-3">
           <svg
-            className="w-[1.25rem] h-[1.25rem] text-brand-600 shrink-0 mt-[0.125rem]"
+            className="w-5 h-5 text-(--accent-rent) shrink-0 mt-[0.125rem]"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -123,11 +123,11 @@ export function ContactDetails() {
             <line x1="12" y1="16" x2="12" y2="12" />
             <line x1="12" y1="8" x2="12.01" y2="8" />
           </svg>
-          <div className="flex flex-col gap-[0.25rem]">
-            <span className="text-[0.875rem] text-brand-800 font-semibold">
+          <div className="flex flex-col gap-1">
+            <span className="text-caption text-(--foreground) font-semibold">
               Free tour, no commitment
             </span>
-            <span className="text-[0.8125rem] text-brand-600 leading-relaxed">
+            <span className="text-caption text-(--accent-rent)">
               Our agents are available Mon-Sat, 9 AM to 8 PM. Property visits
               are completely free with no obligations.
             </span>

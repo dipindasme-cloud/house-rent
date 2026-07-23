@@ -42,17 +42,18 @@ export function Testimonials() {
   const current = testimonials[active];
 
   return (
-    <section className="px-[1.5rem] md:px-[3rem] lg:px-[6rem] py-[4rem] md:py-[6rem]">
-      <div className="max-w-[80rem] mx-auto">
+    <section className="py-16 md:py-24">
+      <div className="px-6 md:px-12 lg:px-24">
+        <div className="max-w-7xl mx-auto">
         <motion.div
-          className="flex flex-col gap-[1rem] mb-[3rem] md:mb-[4rem]"
+          className="flex flex-col gap-4 mb-12 md:mb-16"
           initial={{ opacity: 0, y: 32 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.5, ease: [0.25, 0.1, 0.25, 1] }}
         >
           <motion.span
-            className="text-[0.8125rem] text-brand-600 font-semibold tracking-[0.125em] uppercase leading-none"
+            className="text-eyebrow text-(--accent-rent)"
             initial={{ opacity: 0, y: 12 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
@@ -61,7 +62,7 @@ export function Testimonials() {
             Testimonials
           </motion.span>
           <motion.h2
-            className="text-[2rem] md:text-[2.5rem] text-text-primary font-bold leading-[1.15] tracking-[-0.02em] max-w-[32rem]"
+            className="text-h1 max-w-lg"
             initial={{ opacity: 0, y: 16 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true, margin: "-80px" }}
@@ -72,7 +73,7 @@ export function Testimonials() {
         </motion.div>
 
         <motion.div
-          className="bg-white rounded-[1rem] border border-border overflow-hidden flex flex-col md:flex-row"
+          className="bg-(--surface) rounded-2xl border border-(--border) overflow-hidden flex flex-col md:flex-row"
           initial={{ opacity: 0, y: 48 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
@@ -100,7 +101,7 @@ export function Testimonials() {
 
             <div className="absolute inset-x-0 bottom-0 h-1/2 bg-gradient-to-t from-black/60 to-transparent pointer-events-none" />
 
-            <div className="absolute bottom-0 left-0 right-0 p-[1.5rem] md:p-[2rem]">
+            <div className="absolute bottom-0 left-0 right-0 p-6 md:p-8">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={active}
@@ -109,10 +110,10 @@ export function Testimonials() {
                   exit={{ opacity: 0, y: -12 }}
                   transition={{ duration: 0.3 }}
                 >
-                  <p className="text-white text-[1.125rem] font-semibold leading-none">
+                  <p className="text-(--primary-foreground) text-h3">
                     {current.name}
                   </p>
-                  <p className="text-white/70 text-[0.875rem] mt-[0.25rem]">
+                  <p className="text-(--primary-foreground) text-caption mt-1">
                     {current.role}
                   </p>
                 </motion.div>
@@ -120,12 +121,12 @@ export function Testimonials() {
             </div>
           </div>
 
-          <div className="flex-1 flex flex-col justify-between p-[1.5rem] md:p-[2.5rem] gap-[1.5rem]">
-            <div className="flex items-center gap-[0.25rem]">
+          <div className="flex-1 flex flex-col justify-between p-6 md:p-10 gap-6">
+            <div className="flex items-center gap-1">
               {Array.from({ length: current.rating }, (_, i) => (
                 <svg
                   key={i}
-                  className="w-[1rem] h-[1rem] text-amber-500"
+                  className="w-4 h-4 text-(--accent-sale)"
                   viewBox="0 0 24 24"
                   fill="currentColor"
                   stroke="none"
@@ -135,11 +136,11 @@ export function Testimonials() {
               ))}
             </div>
 
-            <div className="flex flex-col gap-[0.75rem]">
+            <div className="flex flex-col gap-3">
               <AnimatePresence mode="wait">
                 <motion.h3
                   key={active}
-                  className="text-[1.5rem] md:text-[1.75rem] text-text-primary font-bold leading-snug tracking-[-0.01em]"
+                  className="text-h2 text-(--foreground)"
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -16 }}
@@ -152,7 +153,7 @@ export function Testimonials() {
               <AnimatePresence mode="wait">
                 <motion.p
                   key={active}
-                  className="text-[0.9375rem] text-text-secondary leading-relaxed"
+                  className="text-body"
                   initial={{ opacity: 0, y: 16 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0, y: -16 }}
@@ -163,14 +164,14 @@ export function Testimonials() {
               </AnimatePresence>
             </div>
 
-            <div className="flex items-center gap-[0.75rem]">
+            <div className="flex items-center gap-3">
               {testimonials.map((t, i) => (
                 <button
                   key={t.name}
                   onClick={() => setActive(i)}
                   className={`relative w-[2.75rem] h-[2.75rem] rounded-full overflow-hidden border-2 transition-all duration-200 cursor-pointer ${
                     i === active
-                      ? "border-brand-600 ring-2 ring-brand-600/20 scale-110"
+                      ? "border-(--primary) ring-2 ring-(--primary)/20 scale-110"
                       : "border-transparent opacity-60 hover:opacity-100"
                   }`}
                 >
@@ -186,6 +187,7 @@ export function Testimonials() {
             </div>
           </div>
         </motion.div>
+      </div>
       </div>
     </section>
   );

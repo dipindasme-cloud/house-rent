@@ -146,10 +146,11 @@ export function BlogList() {
   };
 
   return (
-    <section className="py-[4rem] px-[1.5rem] md:px-[3rem] lg:px-[6rem]">
-      <div className="max-w-[80rem] mx-auto flex flex-col gap-[2.5rem]">
+    <section className="py-16">
+      <div className="px-6 md:px-12 lg:px-24">
+        <div className="max-w-7xl mx-auto flex flex-col gap-10">
         <motion.div
-          className="flex flex-col items-center gap-[1.25rem] text-center"
+          className="flex flex-col items-center gap-5 text-center"
           initial="hidden"
           whileInView="visible"
           viewport={sectionViewport}
@@ -158,14 +159,14 @@ export function BlogList() {
           <motion.span
             variants={fadeInUp}
             transition={defaultTransition}
-            className="text-[0.8125rem] text-brand-600 font-semibold tracking-[0.125em] uppercase leading-none"
+            className="text-eyebrow text-(--accent-rent)"
           >
             Our Blog
           </motion.span>
           <motion.h2
             variants={fadeInUp}
             transition={defaultTransition}
-            className="text-[2rem] md:text-[2.5rem] text-text-primary font-bold leading-[1.15] tracking-[-0.02em]"
+            className="text-h1"
           >
             Latest insights & updates
           </motion.h2>
@@ -177,10 +178,10 @@ export function BlogList() {
               key={cat}
               onClick={() => handleCategoryChange(cat)}
               className={
-                `text-[0.8125rem] font-medium leading-none py-[0.5rem] px-[1rem] rounded-[0.5rem] transition-all duration-200 cursor-pointer ` +
+                 `text-caption py-2 px-4 rounded-lg transition-all duration-200 cursor-pointer ` +
                 (activeCategory === cat
-                  ? "bg-brand-600 text-white"
-                  : "bg-surface-secondary text-text-secondary border border-border hover:bg-brand-50")
+                  ? "bg-(--primary) text-(--primary-foreground)"
+                  : "bg-(--muted) text-(--muted-foreground) border border-(--border) hover:bg-(--muted)")
               }
             >
               {cat}
@@ -188,22 +189,23 @@ export function BlogList() {
           ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[1.5rem]">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
           {displayed.map((post, index) => (
             <BlogCard key={post.title} {...post} index={index} />
           ))}
         </div>
 
         {hasMore && (
-          <div className="flex justify-center pt-[1rem]">
+          <div className="flex justify-center pt-4">
             <button
               onClick={() => setVisibleCount((prev) => prev + LOAD_MORE_COUNT)}
-              className="text-[0.875rem] font-medium leading-none py-[0.75rem] px-[2rem] rounded-[0.5rem] bg-brand-600 text-white hover:opacity-90 transition-all duration-200 cursor-pointer"
+              className="text-caption font-medium py-3 px-8 rounded-lg bg-(--primary) text-(--primary-foreground) hover:opacity-90 transition-all duration-200 cursor-pointer"
             >
               Load More
             </button>
           </div>
         )}
+        </div>
       </div>
     </section>
   );

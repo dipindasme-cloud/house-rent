@@ -17,7 +17,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>(
     return (
       <input
         ref={ref}
-        className={`w-full bg-surface text-text-primary placeholder:text-text-muted border border-border outline-none transition-colors duration-200 focus:border-brand-400 focus:ring-[0.125rem] focus:ring-brand-400/20 leading-none ${sizeStyles[inputSize]} ${className}`}
+        className={`w-full bg-(--surface) text-(--foreground) placeholder:text-(--muted-foreground) border border-(--border) outline-none transition-colors duration-200 focus:border-(--primary) focus:ring-[0.125rem] focus:ring-(--primary)/20 leading-none ${sizeStyles[inputSize]} ${className}`}
         {...props}
       />
     );

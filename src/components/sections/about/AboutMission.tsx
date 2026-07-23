@@ -18,7 +18,7 @@ const missionData = [
     description:
       "Spacious and sunlit apartments featuring modern interiors, ideally located in the heart of the city. We curate every listing to ensure quality and comfort.",
     icon: (
-      <svg className="w-[1.5rem] h-[1.5rem]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
         <polyline points="9 22 9 12 15 12 15 22" />
       </svg>
@@ -30,7 +30,7 @@ const missionData = [
     description:
       "Reach thousands of verified renters every month. Our platform makes it easy to list, manage, and grow your rental business with transparency and ease.",
     icon: (
-      <svg className="w-[1.5rem] h-[1.5rem]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <circle cx="12" cy="12" r="10" />
         <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z" />
         <path d="M2 12h20" />
@@ -43,7 +43,7 @@ const missionData = [
     description:
       "Every property goes through our rigorous verification process. We believe in honest dealings and building lasting relationships with our community.",
     icon: (
-      <svg className="w-[1.5rem] h-[1.5rem]" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
+      <svg className="w-6 h-6" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.5">
         <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
       </svg>
     ),
@@ -52,10 +52,11 @@ const missionData = [
 
 export function AboutMission() {
   return (
-    <section className="px-[1.5rem] md:px-[3rem] lg:px-[6rem] py-[4rem] md:py-[6rem]">
-      <div className="max-w-[80rem] mx-auto flex flex-col gap-[3rem]">
+    <section className="py-16 md:py-24">
+      <div className="px-6 md:px-12 lg:px-24">
+        <div className="max-w-7xl mx-auto flex flex-col gap-12">
         <motion.div
-          className="flex flex-col items-center gap-[1.25rem] text-center"
+          className="flex flex-col items-center gap-5 text-center"
           initial="hidden"
           whileInView="visible"
           viewport={sectionViewport}
@@ -64,22 +65,22 @@ export function AboutMission() {
           <motion.span
             variants={fadeInUp}
             transition={defaultTransition}
-            className="text-[0.8125rem] text-brand-600 font-semibold tracking-[0.125em] uppercase leading-none"
+            className="text-eyebrow text-(--accent-rent)"
           >
             About Company
           </motion.span>
           <motion.h2
             variants={fadeInUp}
             transition={defaultTransition}
-            className="text-[2rem] md:text-[2.5rem] text-text-primary font-bold leading-[1.15] tracking-[-0.02em] max-w-[36rem]"
+            className="text-h1 max-w-xl"
           >
             Carefully selected rentals in top locations, updated weekly
           </motion.h2>
         </motion.div>
 
-        <div className="flex flex-col lg:flex-row gap-[3rem] items-center">
+        <div className="flex flex-col lg:flex-row gap-12 items-center">
           <motion.div
-            className="relative w-full lg:w-1/2 aspect-[4/3] rounded-[1.25rem] overflow-hidden"
+            className="relative w-full lg:w-1/2 aspect-[4/3] rounded-3xl overflow-hidden"
             initial="hidden"
             whileInView="visible"
             viewport={sectionViewport}
@@ -96,7 +97,7 @@ export function AboutMission() {
           </motion.div>
 
           <motion.div
-            className="flex flex-col gap-[2rem] w-full lg:w-1/2"
+            className="flex flex-col gap-8 w-full lg:w-1/2"
             initial="hidden"
             whileInView="visible"
             viewport={sectionViewport}
@@ -107,25 +108,26 @@ export function AboutMission() {
                 key={item.label}
                 variants={fadeInRight}
                 transition={{ ...defaultTransition, delay: index * 0.15 }}
-                className="flex gap-[1.25rem] items-start"
+                className="flex gap-5 items-start"
               >
-                <div className="shrink-0 w-[3rem] h-[3rem] rounded-[0.75rem] bg-brand-50 text-brand-600 flex items-center justify-center">
+                <div className="shrink-0 w-12 h-12 rounded-xl bg-(--muted) text-(--accent-rent) flex items-center justify-center">
                   {item.icon}
                 </div>
                 <div className="flex flex-col gap-[0.375rem]">
-                  <span className="text-[0.75rem] text-brand-600 font-semibold tracking-[0.125em] uppercase leading-none">
+                  <span className="text-eyebrow">
                     {item.label}
                   </span>
-                  <h3 className="text-[1.125rem] md:text-[1.25rem] text-text-primary font-bold leading-snug tracking-[-0.015em]">
+                  <h3 className="text-h3">
                     {item.title}
                   </h3>
-                  <p className="text-[0.875rem] text-text-secondary leading-relaxed">
+                  <p className="text-caption">
                     {item.description}
                   </p>
                 </div>
               </motion.div>
             ))}
           </motion.div>
+        </div>
         </div>
       </div>
     </section>

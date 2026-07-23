@@ -1,152 +1,133 @@
-@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap");
-
 @import "tailwindcss";
 
-@theme {
-  --font-sans: "Plus Jakarta Sans", ui-sans-serif, system-ui, sans-serif;
+/* ==========================================================================
+   DESIGN TOKENS & SEMANTIC SYSTEM
+   ========================================================================== */
+:root {
+/* Base Surfaces & Text */
+  --background: #f9f8f6;          /* Warm Off-White Cream */
+  --foreground: #121212;          /* Obsidian Charcoal Text & Main Titles */
+  --surface: #ffffff;             /* Pure White for Property Cards & Modals */
+  --surface-hover: #f4f2ed;       /* Soft Surface Hover State */
 
-  --color-brand-50: #eef2ff;
-  --color-brand-100: #e0e7ff;
-  --color-brand-200: #c7d2fe;
-  --color-brand-300: #a5b4fc;
-  --color-brand-400: #818cf8;
-  --color-brand-500: #6366f1;
-  --color-brand-600: #4f46e5;
-  --color-brand-700: #4338ca;
-  --color-brand-800: #3730a3;
-  --color-brand-900: #312e81;
-  --color-brand-950: #1e1b4b;
+  /* Primary Action Elements */
+  --primary: #121212;             /* High-Contrast Obsidian Buttons/CTAs */
+  --primary-foreground: #ffffff;  /* Text on Primary Buttons */
 
-  --color-luxury-50: #f7f5f2;
-  --color-luxury-100: #e8e3da;
-  --color-luxury-200: #d1c9b8;
-  --color-luxury-300: #b8ab93;
-  --color-luxury-400: #a08f72;
-  --color-luxury-500: #8f7b5c;
-  --color-luxury-600: #7a684e;
-  --color-luxury-700: #665441;
-  --color-luxury-800: #554638;
-  --color-luxury-900: #493c31;
-  --color-luxury-950: #281f19;
+  /* Secondary & Muted States */
+  --muted: #eeece7;               /* Subtle Background Fill */
+  --muted-foreground: #5e5c56;    /* Subtitles, Metadata & Muted Copy */
+  --border: #e3e0d8;              /* Crisp Architectural Dividers & Card Borders */
 
-  --color-surface: #fafaf9;
-  --color-surface-secondary: #f5f4f0;
-  --color-border: #e6e3dc;
-  --color-text-primary: #1c1917;
-  --color-text-secondary: #57534e;
-  --color-text-muted: #a8a29e;
+  /* Functional Intent Accents (The Buy/Rent Solution) */
+  --accent-sale: #1e1b18;         /* Deep Onyx for "Buy" Mode & Badges */
+  --accent-sale-fg: #ffffff;
+
+  --accent-rent: #8c6d46;         /* Muted Bronze for "Rent" Mode & Badges */
+  --accent-rent-fg: #ffffff;
+
+  /* Status Tokens */
+  --success: #2e5a44;
+
+  /* Fonts */
+  --font-serif: var(--font-playfair), "Cormorant Garamond", Georgia, serif;
+  --font-sans: var(--font-jakarta), "Plus Jakarta Sans", system-ui, sans-serif;
+
+  /* Comfortable Fluid Scale (Min, Fluid Formula, Max) */
+  --text-display: clamp(2.5rem, 1.8rem + 3.2vw, 4rem);         /* 40px -> 64px */
+  --text-h1: clamp(2rem, 1.5rem + 2.2vw, 3rem);               /* 32px -> 48px */
+  --text-h2: clamp(1.5rem, 1.25rem + 1.2vw, 2.125rem);       /* 24px -> 34px */
+  --text-h3: clamp(1.125rem, 1.05rem + 0.5vw, 1.375rem);      /* 18px -> 22px */
+  --text-body-lg: clamp(1rem, 0.95rem + 0.35vw, 1.125rem);    /* 16px -> 18px */
+  --text-body: clamp(0.938rem, 0.91rem + 0.15vw, 1rem);        /* 15px -> 16px */
+  --text-caption: clamp(0.75rem, 0.72rem + 0.12vw, 0.813rem);  /* 12px -> 13px */
+
+  /* Section Rhythm */
+  --spacing-section: clamp(4rem, 2.5rem + 5vw, 7.5rem);
 }
 
-@layer base {
-  *,
-  *::before,
-  *::after {
-    box-sizing: border-box;
-  }
-
-  html {
-    -webkit-text-size-adjust: 100%;
-    scroll-behavior: smooth;
-  }
-
-  body {
-    margin: 0;
-    padding: 0;
-    font-family: var(--font-sans);
-    font-size: 1rem;
-    line-height: 1.6;
-    color: var(--color-text-primary);
-    background-color: var(--color-surface);
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-    text-rendering: optimizeLegibility;
-  }
-
-  img {
-    display: block;
-    max-width: 100%;
-    height: auto;
-  }
-
-  a {
-    color: inherit;
-    text-decoration: none;
-  }
+/* ==========================================================================
+   BASE & TYPOGRAPHY RESETS
+   ========================================================================== */
+html {
+  font-family: var(--font-sans);
+  background-color: var(--background);
+  color: var(--foreground);
+  scroll-behavior: smooth;
 }
 
-@keyframes marquee {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-33.333%);
-  }
+/* ==========================================================================
+   EDITORIAL TYPOGRAPHY CLASSES
+   ========================================================================== */
+
+/* Hero Headlines - Dramatic & High Contrast */
+.text-display {
+  font-family: var(--font-serif);
+  font-size: var(--text-display);
+  line-height: 1.08;
+  letter-spacing: -0.03em;
+  font-weight: 500;
 }
 
-.marquee-animate {
-  animation: marquee 36s linear infinite;
+/* Primary Page Headings */
+.text-h1 {
+  font-family: var(--font-serif);
+  font-size: var(--text-h1);
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  font-weight: 500;
 }
 
-@keyframes fade-in-up {
-  from {
-    opacity: 0;
-    transform: translateY(1.25rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+/* Section Titles (e.g. "Featured Properties") */
+.text-h2 {
+  font-family: var(--font-sans);
+  font-size: var(--text-h2);
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  font-weight: 600;
 }
 
-@keyframes slide-in-left {
-  from {
-    opacity: 0;
-    transform: translateX(-2rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+/* Card Titles / Subheadings */
+.text-h3 {
+  font-family: var(--font-sans);
+  font-size: var(--text-h3);
+  line-height: 1.38;
+  letter-spacing: -0.01em;
+  font-weight: 600;
 }
 
-@keyframes slide-in-right {
-  from {
-    opacity: 0;
-    transform: translateX(2rem);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
+/* Featured Lead Paragraphs / Hero Subtitle */
+.text-body-lg {
+  font-size: var(--text-body-lg);
+  line-height: 1.7;
+  color: var(--muted-foreground);
+  font-weight: 400;
 }
 
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+/* Standard Body Text (Descriptions, Details) */
+.text-body {
+  font-size: var(--text-body);
+  line-height: 1.75;
+  color: var(--foreground);
+  font-weight: 400;
 }
 
-@keyframes shimmer {
-  0% { background-position: -200% center; }
-  100% { background-position: 200% center; }
+/* Captions, Metadata & Badges */
+.text-caption {
+  font-size: var(--text-caption);
+  line-height: 1.45;
+  color: var(--muted-foreground);
+  font-weight: 500;
 }
 
-.animate-fade-in-up {
-  animation: fade-in-up 0.6s ease-out both;
+/* Editorial Eyebrow / Label Accent */
+.text-eyebrow {
+  font-family: var(--font-sans);
+  font-size: clamp(0.7rem, 0.68rem + 0.1vw, 0.75rem);
+  text-transform: uppercase;
+  letter-spacing: 0.12em;
+  font-weight: 600;
+  color: var(--accent-rent);
 }
 
-.animate-slide-in-left {
-  animation: slide-in-left 0.6s ease-out both;
-}
 
-.animate-slide-in-right {
-  animation: slide-in-right 0.6s ease-out both;
-}
-
-.animate-fade-in {
-  animation: fade-in 0.5s ease-out both;
-}
-
-.delay-100 { animation-delay: 0.1s; }
-.delay-200 { animation-delay: 0.2s; }
-.delay-300 { animation-delay: 0.3s; }
-.delay-400 { animation-delay: 0.4s; }

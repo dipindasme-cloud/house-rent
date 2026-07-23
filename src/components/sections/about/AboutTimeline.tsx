@@ -39,10 +39,11 @@ const milestones = [
 
 export function AboutTimeline() {
   return (
-    <section className="px-[1.5rem] md:px-[3rem] lg:px-[6rem] py-[4rem] md:py-[6rem] bg-surface-secondary">
-      <div className="max-w-[80rem] mx-auto flex flex-col gap-[3rem]">
+    <section className="py-16 md:py-24 bg-(--muted)">
+      <div className="px-6 md:px-12 lg:px-24">
+        <div className="max-w-7xl mx-auto flex flex-col gap-12">
         <motion.div
-          className="flex flex-col items-center gap-[1.25rem] text-center"
+          className="flex flex-col items-center gap-5 text-center"
           initial="hidden"
           whileInView="visible"
           viewport={sectionViewport}
@@ -51,26 +52,26 @@ export function AboutTimeline() {
           <motion.span
             variants={fadeInUp}
             transition={defaultTransition}
-            className="text-[0.8125rem] text-brand-600 font-semibold tracking-[0.125em] uppercase leading-none"
+            className="text-eyebrow text-(--accent-rent)"
           >
             Our History
           </motion.span>
           <motion.h2
             variants={fadeInUp}
             transition={defaultTransition}
-            className="text-[2rem] md:text-[2.5rem] text-text-primary font-bold leading-[1.15] tracking-[-0.02em]"
+            className="text-h1"
           >
             Join our journey
           </motion.h2>
         </motion.div>
 
-        <div className="relative flex flex-col gap-[2rem] md:gap-[3rem]">
+        <div className="relative flex flex-col gap-8 md:gap-12">
           {milestones.map((milestone, index) => {
             const isEven = index % 2 === 0;
             return (
               <motion.div
                 key={milestone.year}
-                className="relative flex flex-col md:flex-row items-start md:items-center gap-[1.5rem] md:gap-[3rem]"
+                className="relative flex flex-col md:flex-row items-start md:items-center gap-6 md:gap-12"
                 initial="hidden"
                 whileInView="visible"
                 viewport={sectionViewport}
@@ -80,30 +81,31 @@ export function AboutTimeline() {
                 <div
                   className={`flex flex-col md:w-[45%] ${isEven ? "md:text-right md:items-end" : "md:order-2"}`}
                 >
-                  <span className="text-[3rem] md:text-[4rem] text-brand-600 font-bold leading-none tracking-[-0.02em]">
+                  <span className="text-display text-(--accent-rent)">
                     {milestone.year}
                   </span>
                 </div>
 
                 <div className="hidden md:flex items-center justify-center shrink-0">
-                  <div className="w-[0.125rem] h-[4rem] bg-brand-200 relative flex items-center justify-center">
-                    <div className="absolute w-[0.75rem] h-[0.75rem] bg-brand-600 rounded-full" />
+                  <div className="w-0.5 h-16 bg-(--border) relative flex items-center justify-center">
+                    <div className="absolute w-3 h-3 bg-(--accent-rent) rounded-full" />
                   </div>
                 </div>
 
                 <div
-                  className={`flex flex-col gap-[0.5rem] md:w-[45%] ${isEven ? "md:order-2" : ""}`}
+                  className={`flex flex-col gap-2 md:w-[45%] ${isEven ? "md:order-2" : ""}`}
                 >
-                  <h3 className="text-[1.125rem] md:text-[1.25rem] text-text-primary font-bold leading-snug">
+                  <h3 className="text-h3">
                     {milestone.title}
                   </h3>
-                  <p className="text-[0.9375rem] text-text-secondary leading-relaxed">
+                  <p className="text-body">
                     {milestone.description}
                   </p>
                 </div>
               </motion.div>
             );
           })}
+        </div>
         </div>
       </div>
     </section>

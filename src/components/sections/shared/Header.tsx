@@ -1,59 +1,117 @@
-import Link from "next/link";
-import { Button } from "@/components/ui/Button";
+"use client";
 
-const navLinks = [
-  { href: "/about", label: "About Us" },
-  { href: "/listings", label: "Listed Homes" },
-  { href: "/blog", label: "Blog" },
-  { href: "/faq", label: "FAQ" },
+import React, { useState } from "react";
+import Link from "next/link";
+
+interface NavLink {
+  label: string;
+  href: string;
+}
+
+const navLinks: NavLink[] = [
+  { label: "ABOUT", href: "/about" },
+  { label: "PROPERTIES", href: "/properties" },
+  { label: "BLOG", href: "/blog" },
+  { label: "CONTACT", href: "/contact" },
 ];
 
-export function Header() {
+export const Header: React.FC = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
-    <header className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-border px-[1.5rem] md:px-[3rem] lg:px-[6rem]">
-      <div className="flex items-center justify-between max-w-[80rem] mx-auto py-[1rem]">
-        <Link
-          href="/"
-          className="flex items-center gap-[0.5rem] text-text-primary no-underline"
+    <header className="sticky top-0 z-50 w-full bg-(--surface) backdrop-blur-md transition-colors border-b border-(--border)">
+      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+        
+        {/* Brand / Logo */}
+        <Link 
+          href="/" 
+          className="text-[1.4375rem] font-medium italic tracking-[-0.04em] text-(--primary) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--primary)/50 rounded-sm"
+          aria-label="AuroSpace"
         >
-          <span className="flex items-center justify-center w-[2rem] h-[2rem] bg-brand-600 text-white text-[0.8125rem] font-bold rounded-[0.5rem] leading-none">
-            A
-          </span>
-          <span className="text-[1.125rem] font-bold tracking-[-0.02em] leading-none">
-            AuraSpace
-          </span>
+          AuroSpace
         </Link>
 
-        <nav className="hidden md:flex items-center gap-[2rem]">
-          {navLinks.map((link) => (
-            <Link
-              key={link.href}
-              href={link.href}
-              className="text-[0.9375rem] text-text-secondary font-medium leading-none transition-colors duration-200 hover:text-text-primary no-underline"
-            >
-              {link.label}
-            </Link>
-          ))}
-        </nav>
+        {/* Desktop Navigation & CTA Container */}
+        <div className="hidden md:flex items-center gap-6 lg:gap-8">
+          <nav aria-label="Main Navigation">
+            <ul className="flex items-center gap-6 lg:gap-8">
+              {navLinks.map((link) => (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="group relative inline-block py-1 text-xs font-semibold tracking-wider text-(--muted-foreground) transition-colors hover:text-(--foreground) focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--primary)/50 rounded-sm"
+                  >
+                    {link.label}
+                    {/* Hover indicator bar */}
+                    <span 
+                      aria-hidden="true" 
+                      className="absolute bottom-0 left-0 h-0.5 w-full scale-x-0 bg-(--primary) transition-transform duration-200 ease-out group-hover:scale-x-100" 
+                    />
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </nav>
 
-        <Link href="/contact" className="hidden sm:inline-flex">
-          <Button size="sm">
-            <svg
-              className="w-[1rem] h-[1rem] shrink-0"
-              viewBox="0 0 24 24"
-              fill="none"
-              stroke="currentColor"
-              strokeWidth="2"
-            >
-              <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
-              <line x1="16" y1="2" x2="16" y2="6" />
-              <line x1="8" y1="2" x2="8" y2="6" />
-              <line x1="3" y1="10" x2="21" y2="10" />
-            </svg>
-            Book a Tour
-          </Button>
-        </Link>
+          {/* Action CTA Button */}
+          <Link
+            href="/get-started"
+            className="inline-flex items-center justify-center rounded-md bg-(--primary) px-4 py-2 text-xs font-semibold text-(--primary-foreground) transition-all hover:opacity-90 active:scale-[0.98] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--primary)/80"
+          >
+            Get Started
+          </Link>
+        </div>
+
+        {/* Mobile Hamburger Toggle */}
+        <button
+          type="button"
+          onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+              className="inline-flex md:hidden items-center justify-center rounded-md p-2 text-(--muted-foreground) hover:text-(--foreground) hover:bg-(--primary)/5 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-(--primary)"
+          aria-expanded={isMobileMenuOpen}
+          aria-label="Toggle Navigation Menu"
+        >
+          <svg 
+            className="h-6 w-6 stroke-current fill-none" 
+            viewBox="0 0 24 24" 
+            strokeWidth="2" 
+            strokeLinecap="round" 
+            strokeLinejoin="round"
+          >
+            {isMobileMenuOpen ? (
+              <path d="M18 6L6 18M6 6l12 12" />
+            ) : (
+              <path d="M4 6h16M4 12h16M4 18h16" />
+            )}
+          </svg>
+        </button>
       </div>
+
+      {/* Mobile Drawer Navigation */}
+      {isMobileMenuOpen && (
+        <div className="md:hidden border-t border-(--border) bg-(--surface) px-4 pt-3 pb-6">
+          <nav className="flex flex-col gap-4" aria-label="Mobile Navigation">
+            {navLinks.map((link) => (
+              <Link
+                key={link.href}
+                href={link.href}
+                onClick={() => setIsMobileMenuOpen(false)}
+                className="text-sm font-semibold tracking-wider text-(--muted-foreground) hover:text-(--foreground)"
+              >
+                {link.label}
+              </Link>
+            ))}
+            <Link
+              href="/get-started"
+              onClick={() => setIsMobileMenuOpen(false)}
+              className="mt-2 inline-flex w-full items-center justify-center rounded-md bg-(--primary) px-4 py-2.5 text-xs font-semibold text-(--primary-foreground) transition-all active:scale-[0.98]"
+            >
+              Get Started
+            </Link>
+          </nav>
+        </div>
+      )}
     </header>
   );
-}
+};
+
+export default Header;

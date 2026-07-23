@@ -61,7 +61,7 @@ const faqs: FAQItem[] = [
 
 function PlusIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" className="w-[1.25rem] h-[1.25rem]">
+    <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
       <path
         d="M12 4v16M4 12h16"
         stroke="currentColor"
@@ -74,7 +74,7 @@ function PlusIcon() {
 
 function MinusIcon() {
   return (
-    <svg viewBox="0 0 24 24" fill="none" className="w-[1.25rem] h-[1.25rem]">
+    <svg viewBox="0 0 24 24" fill="none" className="w-5 h-5">
       <path
         d="M4 12h16"
         stroke="currentColor"
@@ -92,39 +92,40 @@ export function FAQ() {
     setOpenIndex(openIndex === index ? null : index);
 
   return (
-    <section className="px-[1.5rem] md:px-[3rem] lg:px-[6rem] py-[4rem] md:py-[6rem]">
-      <div className="max-w-[80rem] mx-auto flex flex-col gap-[3rem]">
-        <div className="flex flex-col items-center gap-[1.25rem] text-center">
-          <span className="text-[0.8125rem] text-brand-600 font-semibold tracking-[0.125em] uppercase leading-none">
+    <section className="py-16 md:py-24">
+      <div className="px-6 md:px-12 lg:px-24">
+        <div className="max-w-7xl mx-auto flex flex-col gap-12">
+        <div className="flex flex-col items-center gap-5 text-center">
+          <span className="text-eyebrow text-(--accent-rent)">
             FAQ &amp; Get Answer
           </span>
-          <h2 className="text-[2rem] md:text-[2.5rem] text-text-primary font-bold leading-[1.15] tracking-[-0.02em]">
+          <h2 className="text-h1">
             Get every answer here
           </h2>
         </div>
 
         <div className="flex flex-col items-center">
-          <div className="flex flex-col gap-[0.75rem] w-full max-w-[48rem]">
+          <div className="flex flex-col gap-3 w-full max-w-3xl">
             {faqs.map((faq, index) => {
               const isOpen = openIndex === index;
               return (
                 <div
                   key={index}
-                  className={`w-full rounded-[10px] overflow-hidden ${
-                    isOpen ? "bg-brand-950" : "bg-white border border-border"
+                  className={`w-full rounded-xl overflow-hidden ${
+                    isOpen ? "bg-(--primary)" : "bg-(--surface) border border-(--border)"
                   }`}
                 >
                   <button
                     onClick={() => toggle(index)}
-                    className="flex items-center justify-between w-full text-left p-[1.25rem] md:p-[1.5rem] cursor-pointer"
+                    className="flex items-center justify-between w-full text-left p-5 md:p-6 cursor-pointer"
                   >
-                    <div className="flex items-center gap-[0.75rem]">
-                      <span className="flex items-center justify-center w-[2.5rem] h-[2.5rem] rounded-[10px] shrink-0 bg-brand-600 text-white">
+                    <div className="flex items-center gap-3">
+                      <span className="flex items-center justify-center w-10 h-10 rounded-xl shrink-0 bg-(--primary) text-(--primary-foreground)">
                         {isOpen ? <MinusIcon /> : <PlusIcon />}
                       </span>
                       <h6
-                        className={`text-[1rem] md:text-[1.0625rem] font-semibold leading-snug m-0 ${
-                          isOpen ? "text-white" : "text-text-primary"
+                        className={`text-body font-semibold m-0 ${
+                          isOpen ? "text-(--primary-foreground)" : "text-(--foreground)"
                         }`}
                       >
                         {faq.question}
@@ -139,8 +140,8 @@ export function FAQ() {
                         : "max-h-0 opacity-0"
                     }`}
                   >
-                    <div className="flex flex-col md:flex-row gap-[1.25rem] p-[1.25rem] md:p-[1.5rem] pt-0">
-                      <div className="w-full md:w-[18rem] shrink-0 rounded-[10px] overflow-hidden relative aspect-[4/3]">
+                    <div className="flex flex-col md:flex-row gap-5 p-5 md:p-6 pt-0">
+                      <div className="w-full md:w-[18rem] shrink-0 rounded-xl overflow-hidden relative aspect-[4/3]">
                         <Image
                           src={faq.imageSrc}
                           alt={faq.question}
@@ -149,11 +150,11 @@ export function FAQ() {
                           sizes="(max-width: 768px) 100vw, 18rem"
                         />
                       </div>
-                      <div className="flex flex-col gap-[0.75rem] flex-1">
-                        <p className="text-[0.9375rem] text-text-muted leading-relaxed m-0">
+                      <div className="flex flex-col gap-3 flex-1">
+                        <p className="text-body m-0">
                           {faq.answer1}
                         </p>
-                        <p className="text-[0.9375rem] text-text-muted leading-relaxed m-0">
+                        <p className="text-body m-0">
                           {faq.answer2}
                         </p>
                       </div>
@@ -163,16 +164,16 @@ export function FAQ() {
               );
             })}
 
-          <div className="flex flex-col md:flex-row items-center justify-between gap-[1.5rem] md:gap-[2rem] rounded-[1.5rem]">
-            <div className="flex flex-col gap-[0.75rem] text-center md:text-left">
-              <p className="text-[0.9375rem] md:text-[1rem] text-text-secondary leading-relaxed m-0 max-w-[32rem]">
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6 md:gap-8 rounded-3xl">
+            <div className="flex flex-col gap-3 text-center md:text-left">
+              <p className="text-body m-0 max-w-lg">
                 We're here to help! Whether you're curious about house rent,
                 costs, or how it works, our team is ready to guide.
               </p>
             </div>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-[0.5rem] py-[0.75rem] px-[1.5rem] text-[0.9375rem] font-medium leading-none rounded-[0.75rem] bg-brand-600 text-white transition-all duration-200 hover:bg-brand-700 active:bg-brand-800 shrink-0 shadow-[0_0.125rem_0.5rem_rgba(99,102,241,0.25)]"
+              className="inline-flex items-center justify-center gap-2 py-3 px-6 text-body rounded-xl bg-(--primary) text-(--primary-foreground) transition-all duration-200 hover:opacity-90 shrink-0"
             >
               <svg
                 viewBox="0 0 256 256"
@@ -185,6 +186,7 @@ export function FAQ() {
             </Link>
           </div>
         </div>
+      </div>
       </div>
     </div>
     </section>

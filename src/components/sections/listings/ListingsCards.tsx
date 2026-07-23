@@ -173,14 +173,15 @@ export function ListingsCards() {
   };
 
   return (
-    <section className="py-[4rem] px-[1.5rem] md:px-[3rem] lg:px-[6rem]">
-      <div className="max-w-[80rem] mx-auto flex flex-col gap-[2.5rem]">
-        <header className="flex flex-col md:flex-row md:items-end justify-between gap-[1.25rem]">
-          <div className="flex flex-col gap-[0.5rem]">
-            <span className="text-brand-600 text-[0.8125rem] font-semibold tracking-[0.125em] uppercase leading-none">
+    <section className="py-16">
+      <div className="px-6 md:px-12 lg:px-24">
+        <div className="max-w-7xl mx-auto flex flex-col gap-10">
+        <header className="flex flex-col md:flex-row md:items-end justify-between gap-5">
+          <div className="flex flex-col gap-2">
+            <span className="text-eyebrow text-(--accent-rent)">
               All Properties
             </span>
-            <h2 className="text-text-primary text-[1.75rem] md:text-[2.25rem] font-bold leading-tight">
+            <h2 className="text-h2">
               Explore our listings
             </h2>
           </div>
@@ -191,10 +192,10 @@ export function ListingsCards() {
                 key={cat}
                 onClick={() => handleCategoryChange(cat)}
                 className={
-                  `text-[0.8125rem] font-medium leading-none py-[0.5rem] px-[1rem] rounded-[0.5rem] transition-all duration-200 cursor-pointer ` +
+                  `text-caption py-2 px-4 rounded-lg transition-all duration-200 cursor-pointer ` +
                   (activeCategory === cat
-                    ? "bg-brand-600 text-white"
-                    : "bg-surface-secondary text-text-secondary border border-border hover:bg-luxury-100")
+                    ? "bg-(--primary) text-(--primary-foreground)"
+                    : "bg-(--muted) text-(--muted-foreground) border border-(--border) hover:bg-(--surface-hover)")
                 }
               >
                 {cat === "All" ? "All" : cat}
@@ -203,7 +204,7 @@ export function ListingsCards() {
           </div>
         </header>
 
-        <div className="flex flex-wrap gap-[1.5rem]">
+        <div className="flex flex-wrap gap-6">
           {displayed.map((item) => (
             <div
               key={item.id}
@@ -224,15 +225,16 @@ export function ListingsCards() {
         </div>
 
         {hasMore && (
-          <div className="flex justify-center pt-[1rem]">
+          <div className="flex justify-center pt-4">
             <button
               onClick={() => setVisibleCount((prev) => prev + LOAD_MORE_COUNT)}
-              className="text-[0.875rem] font-medium leading-none py-[0.75rem] px-[2rem] rounded-[0.5rem] bg-brand-600 text-white hover:opacity-90 transition-all duration-200 cursor-pointer"
+              className="text-caption font-medium py-3 px-8 rounded-lg bg-(--primary) text-(--primary-foreground) hover:opacity-90 transition-all duration-200 cursor-pointer"
             >
               Load More
             </button>
           </div>
         )}
+        </div>
       </div>
     </section>
   );

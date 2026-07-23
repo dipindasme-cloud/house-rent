@@ -42,11 +42,11 @@ export function ContactForm() {
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="flex flex-col items-center gap-[1.5rem] py-[4rem] text-center"
+        className="flex flex-col items-center gap-6 py-16 text-center"
       >
-        <div className="w-[4rem] h-[4rem] rounded-full bg-brand-600 flex items-center justify-center">
+          <div className="w-16 h-16 rounded-full bg-(--primary) flex items-center justify-center">
           <svg
-            className="w-[2rem] h-[2rem] text-white"
+            className="w-8 h-8 text-(--primary-foreground)"
             viewBox="0 0 24 24"
             fill="none"
             stroke="currentColor"
@@ -55,10 +55,10 @@ export function ContactForm() {
             <path d="M20 6L9 17l-5-5" />
           </svg>
         </div>
-        <h3 className="text-[1.5rem] text-text-primary font-bold">
+        <h3 className="text-h2">
           Tour request submitted!
         </h3>
-        <p className="text-[0.9375rem] text-text-secondary max-w-[24rem]">
+        <p className="text-body max-w-sm">
           We&apos;ll contact you within 24 hours to confirm your visit. Thank
           you for choosing AuraSpace.
         </p>
@@ -69,15 +69,15 @@ export function ContactForm() {
   return (
     <motion.form
       onSubmit={handleSubmit}
-      className="flex flex-col gap-[1.5rem]"
+      className="flex flex-col gap-6"
       initial="hidden"
       whileInView="visible"
       viewport={sectionViewport}
       variants={staggerContainer}
     >
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-[1rem]">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <motion.div variants={fadeInLeft} transition={defaultTransition}>
-          <label className="block text-[0.8125rem] text-text-secondary font-medium mb-[0.5rem]">
+          <label className="block text-caption mb-2">
             Full Name
           </label>
           <Input
@@ -91,7 +91,7 @@ export function ContactForm() {
         </motion.div>
 
         <motion.div variants={fadeInRight} transition={defaultTransition}>
-          <label className="block text-[0.8125rem] text-text-secondary font-medium mb-[0.5rem]">
+          <label className="block text-caption mb-2">
             Email Address
           </label>
           <Input
@@ -105,9 +105,9 @@ export function ContactForm() {
         </motion.div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-[1rem]">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <motion.div variants={fadeInLeft} transition={defaultTransition}>
-          <label className="block text-[0.8125rem] text-text-secondary font-medium mb-[0.5rem]">
+          <label className="block text-caption mb-2">
             Phone Number
           </label>
           <Input
@@ -121,7 +121,7 @@ export function ContactForm() {
         </motion.div>
 
         <motion.div variants={fadeInRight} transition={defaultTransition}>
-          <label className="block text-[0.8125rem] text-text-secondary font-medium mb-[0.5rem]">
+          <label className="block text-caption mb-2">
             Property Type
           </label>
           <select
@@ -129,7 +129,7 @@ export function ContactForm() {
             value={formData.propertyType}
             onChange={handleChange}
             required
-            className="w-full bg-surface text-text-primary placeholder:text-text-muted border border-border outline-none transition-colors duration-200 focus:border-brand-400 focus:ring-[0.125rem] focus:ring-brand-400/20 py-[0.6875rem] px-[1rem] text-[0.9375rem] rounded-[0.75rem] leading-none cursor-pointer"
+            className="w-full bg-(--surface) text-(--foreground) placeholder:text-(--muted-foreground) border border-(--border) outline-none transition-colors duration-200 focus:border-(--border) focus:ring-[0.125rem] focus:ring-(--primary)/20 py-[0.6875rem] px-4 text-[0.9375rem] rounded-xl leading-none cursor-pointer"
           >
             <option value="">Select type</option>
             <option value="Villa">Villa</option>
@@ -141,7 +141,7 @@ export function ContactForm() {
       </div>
 
       <motion.div variants={fadeInUp} transition={defaultTransition}>
-        <label className="block text-[0.8125rem] text-text-secondary font-medium mb-[0.5rem]">
+        <label className="block text-caption mb-2">
           Preferred Date
         </label>
         <Input
@@ -154,7 +154,7 @@ export function ContactForm() {
       </motion.div>
 
       <motion.div variants={fadeInUp} transition={defaultTransition}>
-        <label className="block text-[0.8125rem] text-text-secondary font-medium mb-[0.5rem]">
+        <label className="block text-caption mb-2">
           Message
         </label>
         <textarea
@@ -163,7 +163,7 @@ export function ContactForm() {
           value={formData.message}
           onChange={handleChange}
           rows={4}
-          className="w-full bg-surface text-text-primary placeholder:text-text-muted border border-border outline-none transition-colors duration-200 focus:border-brand-400 focus:ring-[0.125rem] focus:ring-brand-400/20 py-[0.6875rem] px-[1rem] text-[0.9375rem] rounded-[0.75rem] leading-relaxed resize-none"
+          className="w-full bg-(--surface) text-(--foreground) placeholder:text-(--muted-foreground) border border-(--border) outline-none transition-colors duration-200 focus:border-(--border) focus:ring-[0.125rem] focus:ring-(--primary)/20 py-[0.6875rem] px-4 text-[0.9375rem] rounded-xl leading-relaxed resize-none"
         />
       </motion.div>
 

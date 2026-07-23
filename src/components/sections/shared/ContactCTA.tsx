@@ -2,20 +2,21 @@ import { Button } from "@/components/ui/Button";
 
 export function ContactCTA() {
   return (
-    <section className="px-[1.5rem] md:px-[3rem] lg:px-[6rem] py-[4rem] md:py-[6rem]">
-      <div className="max-w-[80rem] mx-auto">
-        <div className="flex flex-col md:flex-row items-center justify-between gap-[2rem] md:gap-[3rem] bg-brand-900 rounded-[1.5rem] p-[2rem] md:p-[3rem] lg:p-[4rem] border border-brand-800 shadow-[0_0.5rem_2.5rem_rgba(79,70,229,0.15)]">
-        <div className="flex flex-col gap-[1.25rem] flex-1">
-          <h2 className="text-[1.75rem] md:text-[2.25rem] text-white font-bold leading-[1.15] tracking-[-0.02em]">
+    <section className="py-16 md:py-24">
+      <div className="px-6 md:px-12 lg:px-24">
+        <div className="max-w-7xl mx-auto">
+        <div className="flex flex-col md:flex-row items-center justify-between gap-8 md:gap-12 bg-(--primary) rounded-3xl p-8 md:p-12 lg:p-16 border border-(--border)">
+        <div className="flex flex-col gap-5 flex-1">
+          <h2 className="text-h2 text-(--primary-foreground)">
             Ready to book a free tour?
           </h2>
 
           <a
             href="tel:+919999999999"
-            className="flex items-center gap-[0.75rem] text-[1.125rem] md:text-[1.25rem] text-brand-200 font-semibold leading-none no-underline transition-colors duration-200 hover:text-white"
+            className="flex items-center gap-3 text-h3 text-(--primary-foreground) no-underline transition-colors duration-200 hover:text-(--primary-foreground)"
           >
             <svg
-              className="w-[1.25rem] h-[1.25rem] shrink-0"
+              className="w-5 h-5 shrink-0"
               viewBox="0 0 24 24"
               fill="none"
               stroke="currentColor"
@@ -42,6 +43,7 @@ export function ContactCTA() {
           </svg>
           Book appointment
         </Button>
+        </div>
         </div>
       </div>
     </section>

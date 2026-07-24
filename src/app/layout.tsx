@@ -37,7 +37,7 @@ export default function RootLayout({
       lang="en"
       className={`${playfair.variable} ${jakarta.variable}`}
     >
-      <body className="antialiased">
+      <body className="antialiased overflow-x-hidden">
         <Header />
         <main className="flex-1">{children}</main>
         <Footer />

@@ -27,7 +27,7 @@
   --accent-rent-fg: #ffffff;
 
   /* Status Tokens */
-  --success: #2e5a44;
+  --success: #2e5a44;       
 
   /* Fonts */
   --font-serif: var(--font-playfair), "Cormorant Garamond", Georgia, serif;

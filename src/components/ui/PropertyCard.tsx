@@ -1,26 +1,30 @@
 import Image from "next/image";
-import { formatCurrency } from "@/lib/utils";
+import type { PriceUnit } from "@/data/HouseData";
 
 interface PropertyCardProps {
   imageSrc: string;
   price: number;
+  priceUnit: PriceUnit;
   type: string;
   title: string;
   location: string;
   beds: number;
   sqft: number;
   rating: number;
+  priceSuffix?: string;
 }
 
 export function PropertyCard({
   imageSrc,
   price,
+  priceUnit,
   type,
   title,
   location,
   beds,
   sqft,
   rating,
+  priceSuffix,
 }: PropertyCardProps) {
   return (
     <div className="group flex flex-col bg-(--surface) rounded-[1rem] overflow-hidden border border-(--border) transition-shadow duration-300 hover:shadow-[0_0.5rem_2rem_rgba(0,0,0,0.08)]">
@@ -44,7 +48,7 @@ export function PropertyCard({
       <div className="flex flex-col gap-[0.5rem] p-[1.25rem]">
         <div className="flex flex-col gap-[0.25rem]">
           <span className="text-(--accent-rent) text-h3">
-            {formatCurrency(price)}
+            ₹{price} {priceUnit}{priceSuffix}
           </span>
           <h3 className="text-body font-semibold">
             {title}

@@ -66,7 +66,7 @@ export function Marquee() {
 
   return (
     <section className="w-full overflow-hidden py-16 bg-(--muted) border-y border-(--border)">
-      <div className="max-w-7xl mx-auto">
+      <div className="w-full max-w-7xl mx-auto">
         <div className="relative overflow-hidden">
           <ul
             ref={containerRef}

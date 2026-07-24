@@ -94,10 +94,10 @@ export function FAQ() {
   return (
     <section className="py-16 md:py-24">
       <div className="px-6 md:px-12 lg:px-24">
-        <div className="max-w-7xl mx-auto flex flex-col gap-12">
+        <div className="max-w-7xl mx-auto w-full flex flex-col gap-12">
         <div className="flex flex-col items-center gap-5 text-center">
           <span className="text-eyebrow text-(--accent-rent)">
-            FAQ &amp; Get Answer
+            FAQ & Get Answer
           </span>
           <h2 className="text-h1">
             Get every answer here
@@ -120,12 +120,14 @@ export function FAQ() {
                     className="flex items-center justify-between w-full text-left p-5 md:p-6 cursor-pointer"
                   >
                     <div className="flex items-center gap-3">
-                      <span className="flex items-center justify-center w-10 h-10 rounded-xl shrink-0 bg-(--primary) text-(--primary-foreground)">
+                      <span className={`flex items-center justify-center w-10 h-10 rounded-xl shrink-0 ${
+                          isOpen ? "bg-(--surface) !text-(--foreground)" : "bg-(--primary) !text-(--primary-foreground)"
+                        }`}>
                         {isOpen ? <MinusIcon /> : <PlusIcon />}
                       </span>
                       <h6
                         className={`text-body font-semibold m-0 ${
-                          isOpen ? "text-(--primary-foreground)" : "text-(--foreground)"
+                          isOpen ? "!text-(--primary-foreground)" : ""
                         }`}
                       >
                         {faq.question}
@@ -151,10 +153,10 @@ export function FAQ() {
                         />
                       </div>
                       <div className="flex flex-col gap-3 flex-1">
-                        <p className="text-body m-0">
+                        <p className="text-body m-0 !text-(--primary-foreground)">
                           {faq.answer1}
                         </p>
-                        <p className="text-body m-0">
+                        <p className="text-body m-0 !text-(--primary-foreground)">
                           {faq.answer2}
                         </p>
                       </div>
@@ -173,7 +175,7 @@ export function FAQ() {
             </div>
             <Link
               href="/contact"
-              className="inline-flex items-center justify-center gap-2 py-3 px-6 text-body rounded-xl bg-(--primary) text-(--primary-foreground) transition-all duration-200 hover:opacity-90 shrink-0"
+              className="inline-flex items-center justify-center gap-2 py-3 px-6 text-body !text-(--primary-foreground) rounded-xl bg-(--primary) transition-all duration-200 hover:opacity-90 shrink-0"
             >
               <svg
                 viewBox="0 0 256 256"

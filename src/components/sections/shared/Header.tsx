@@ -20,7 +20,7 @@ export const Header: React.FC = () => {
 
   return (
     <header className="sticky top-0 z-50 w-full bg-(--surface) backdrop-blur-md transition-colors border-b border-(--border)">
-      <div className="mx-auto flex max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
+      <div className="mx-auto flex w-full max-w-7xl items-center justify-between px-4 py-3 sm:px-6 lg:px-8">
         
         {/* Brand / Logo */}
         <Link 
@@ -89,7 +89,7 @@ export const Header: React.FC = () => {
       {/* Mobile Drawer Navigation */}
       {isMobileMenuOpen && (
         <div className="md:hidden border-t border-(--border) bg-(--surface) px-4 pt-3 pb-6">
-          <nav className="flex flex-col gap-4" aria-label="Mobile Navigation">
+          <nav className="flex flex-col gap-4 items-center " aria-label="Mobile Navigation">
             {navLinks.map((link) => (
               <Link
                 key={link.href}

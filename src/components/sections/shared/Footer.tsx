@@ -14,7 +14,7 @@ export function Footer() {
   return (
     <footer className="border-t border-(--border) bg-(--muted) py-16 md:py-20">
       <div className="px-6 md:px-12 lg:px-24">
-        <div className="max-w-7xl mx-auto">
+        <div className="max-w-7xl mx-auto w-full">
         <div className="flex flex-col md:flex-row gap-12 md:gap-16">
           <div className="animate-slide-in-left delay-100 flex flex-col gap-5 flex-[2]">
             <Link

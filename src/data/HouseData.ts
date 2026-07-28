@@ -1,4 +1,5 @@
 export type PriceUnit = "Lakh" | "Cr";
+export type Furnishing = "Fully Furnished" | "Semi-Furnished" | "Unfurnished";
 
 export interface Property {
   id: string;
@@ -9,8 +10,14 @@ export interface Property {
   title: string;
   location: string;
   beds: number;
+  baths: number;
   sqft: number;
   rating: number;
+  deposit: string;
+  furnishing: Furnishing;
+  availableFrom: string;
+  tags: string[];
+  verified: boolean;
 }
 
 export const RENTAL_PROPERTIES: Property[] = [
@@ -23,8 +30,14 @@ export const RENTAL_PROPERTIES: Property[] = [
     title: "Palm Grove Estate",
     location: "Juhu, Mumbai",
     beds: 5,
+    baths: 6,
     sqft: 4500,
     rating: 4.9,
+    deposit: "1 month",
+    furnishing: "Fully Furnished",
+    availableFrom: "Immediately",
+    tags: ["Private Pool", "Pet Friendly", "Smart Home"],
+    verified: true,
   },
   {
     id: "aur-002",
@@ -35,8 +48,14 @@ export const RENTAL_PROPERTIES: Property[] = [
     title: "The Sky Residence",
     location: "Bandra West, Mumbai",
     beds: 4,
+    baths: 5,
     sqft: 3200,
     rating: 4.8,
+    deposit: "2 months",
+    furnishing: "Fully Furnished",
+    availableFrom: "Immediately",
+    tags: ["Sea View", "Private Terrace", "Valet Parking"],
+    verified: true,
   },
   {
     id: "aur-003",
@@ -47,8 +66,14 @@ export const RENTAL_PROPERTIES: Property[] = [
     title: "Green Acres Towers",
     location: "Whitefield, Bangalore",
     beds: 3,
+    baths: 3,
     sqft: 2150,
     rating: 4.7,
+    deposit: "1 month",
+    furnishing: "Semi-Furnished",
+    availableFrom: "Aug 2026",
+    tags: ["Gym Access", "Clubhouse", "Power Backup"],
+    verified: true,
   },
   {
     id: "aur-004",
@@ -59,8 +84,14 @@ export const RENTAL_PROPERTIES: Property[] = [
     title: "Riverfront Haven",
     location: "Pune",
     beds: 6,
+    baths: 7,
     sqft: 5800,
     rating: 5.0,
+    deposit: "1 month",
+    furnishing: "Fully Furnished",
+    availableFrom: "Immediately",
+    tags: ["Waterfront", "Private Pool", "Home Theatre"],
+    verified: true,
   },
   {
     id: "aur-005",
@@ -71,8 +102,14 @@ export const RENTAL_PROPERTIES: Property[] = [
     title: "Golf Course Residency",
     location: "Gurugram",
     beds: 3,
+    baths: 3,
     sqft: 2680,
     rating: 4.6,
+    deposit: "1 month",
+    furnishing: "Fully Furnished",
+    availableFrom: "Immediately",
+    tags: ["Golf View", "Swimming Pool", "24/7 Security"],
+    verified: false,
   },
   {
     id: "aur-006",
@@ -83,8 +120,14 @@ export const RENTAL_PROPERTIES: Property[] = [
     title: "Bayview Penthouse",
     location: "Calangute, Goa",
     beds: 4,
+    baths: 4,
     sqft: 3600,
     rating: 4.9,
+    deposit: "1 month",
+    furnishing: "Fully Furnished",
+    availableFrom: "Immediately",
+    tags: ["Beachfront", "Private Pool", "Rooftop Deck"],
+    verified: true,
   },
 ];
 
@@ -98,8 +141,14 @@ export const SALE_PROPERTIES: Property[] = [
     title: "Palm Grove Estate",
     location: "Juhu, Mumbai",
     beds: 5,
+    baths: 6,
     sqft: 4500,
     rating: 4.9,
+    deposit: "—",
+    furnishing: "Fully Furnished",
+    availableFrom: "Immediately",
+    tags: ["Private Pool", "Pet Friendly", "Smart Home"],
+    verified: true,
   },
   {
     id: "aur-002",
@@ -110,8 +159,14 @@ export const SALE_PROPERTIES: Property[] = [
     title: "The Sky Residence",
     location: "Bandra West, Mumbai",
     beds: 4,
+    baths: 5,
     sqft: 3200,
     rating: 4.8,
+    deposit: "—",
+    furnishing: "Fully Furnished",
+    availableFrom: "Immediately",
+    tags: ["Sea View", "Private Terrace", "Valet Parking"],
+    verified: true,
   },
   {
     id: "aur-003",
@@ -122,8 +177,14 @@ export const SALE_PROPERTIES: Property[] = [
     title: "Green Acres Towers",
     location: "Whitefield, Bangalore",
     beds: 3,
+    baths: 3,
     sqft: 2150,
     rating: 4.7,
+    deposit: "—",
+    furnishing: "Semi-Furnished",
+    availableFrom: "Aug 2026",
+    tags: ["Gym Access", "Clubhouse", "Power Backup"],
+    verified: true,
   },
   {
     id: "aur-004",
@@ -134,8 +195,14 @@ export const SALE_PROPERTIES: Property[] = [
     title: "Riverfront Haven",
     location: "Pune",
     beds: 6,
+    baths: 7,
     sqft: 5800,
     rating: 5.0,
+    deposit: "—",
+    furnishing: "Fully Furnished",
+    availableFrom: "Immediately",
+    tags: ["Waterfront", "Private Pool", "Home Theatre"],
+    verified: true,
   },
   {
     id: "aur-005",
@@ -146,8 +213,14 @@ export const SALE_PROPERTIES: Property[] = [
     title: "Golf Course Residency",
     location: "Gurugram",
     beds: 3,
+    baths: 3,
     sqft: 2680,
     rating: 4.6,
+    deposit: "—",
+    furnishing: "Fully Furnished",
+    availableFrom: "Immediately",
+    tags: ["Golf View", "Swimming Pool", "24/7 Security"],
+    verified: false,
   },
   {
     id: "aur-006",
@@ -158,8 +231,14 @@ export const SALE_PROPERTIES: Property[] = [
     title: "Bayview Penthouse",
     location: "Calangute, Goa",
     beds: 4,
+    baths: 4,
     sqft: 3600,
     rating: 4.9,
+    deposit: "—",
+    furnishing: "Fully Furnished",
+    availableFrom: "Immediately",
+    tags: ["Beachfront", "Private Pool", "Rooftop Deck"],
+    verified: true,
   },
   {
     id: "aur-007",
@@ -170,8 +249,14 @@ export const SALE_PROPERTIES: Property[] = [
     title: "Lake View Manor",
     location: "Koramangala, Bangalore",
     beds: 5,
+    baths: 6,
     sqft: 5200,
     rating: 4.8,
+    deposit: "—",
+    furnishing: "Fully Furnished",
+    availableFrom: "Immediately",
+    tags: ["Lake View", "Private Garden", "Wine Cellar"],
+    verified: true,
   },
   {
     id: "aur-008",
@@ -182,8 +267,14 @@ export const SALE_PROPERTIES: Property[] = [
     title: "Urban Nest Apartments",
     location: "Andheri West, Mumbai",
     beds: 2,
+    baths: 2,
     sqft: 1400,
     rating: 4.5,
+    deposit: "—",
+    furnishing: "Semi-Furnished",
+    availableFrom: "Sep 2026",
+    tags: ["Metro Access", "Balcony", "Car Parking"],
+    verified: true,
   },
   {
     id: "aur-009",
@@ -194,8 +285,14 @@ export const SALE_PROPERTIES: Property[] = [
     title: "Coastal Breeze Penthouse",
     location: "Baga, Goa",
     beds: 4,
+    baths: 5,
     sqft: 3800,
     rating: 4.9,
+    deposit: "—",
+    furnishing: "Fully Furnished",
+    availableFrom: "Immediately",
+    tags: ["Beachfront", "Private Pool", "Rooftop Bar"],
+    verified: true,
   },
   {
     id: "aur-010",
@@ -206,8 +303,14 @@ export const SALE_PROPERTIES: Property[] = [
     title: "Hillside Retreat",
     location: "Lonavala, Maharashtra",
     beds: 6,
+    baths: 7,
     sqft: 6500,
     rating: 5.0,
+    deposit: "—",
+    furnishing: "Fully Furnished",
+    availableFrom: "Immediately",
+    tags: ["Mountain View", "Infinity Pool", "Spa"],
+    verified: true,
   },
   {
     id: "aur-011",
@@ -218,8 +321,14 @@ export const SALE_PROPERTIES: Property[] = [
     title: "Downtown Heights",
     location: "MG Road, Gurugram",
     beds: 3,
+    baths: 3,
     sqft: 1900,
     rating: 4.7,
+    deposit: "—",
+    furnishing: "Fully Furnished",
+    availableFrom: "Immediately",
+    tags: ["City View", "Concierge", "EV Charging"],
+    verified: false,
   },
   {
     id: "aur-012",
@@ -230,7 +339,13 @@ export const SALE_PROPERTIES: Property[] = [
     title: "Seaside Luxe Penthouse",
     location: "Juhu, Mumbai",
     beds: 3,
+    baths: 4,
     sqft: 2800,
     rating: 4.8,
+    deposit: "—",
+    furnishing: "Fully Furnished",
+    availableFrom: "Immediately",
+    tags: ["Sea View", "Private Pool", "Butler Service"],
+    verified: true,
   },
 ];

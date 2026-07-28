@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 
-import { AboutHero } from "@/components/sections/about/AboutHero";
-import { AboutMission } from "@/components/sections/about/AboutMission";
-import { AboutTimeline } from "@/components/sections/about/AboutTimeline";
-import { AboutAwards } from "@/components/sections/about/AboutAwards";
+import { AboutHero } from "@/sections/about/AboutHero";
+import { AboutMission } from "@/sections/about/AboutMission";
+import { AboutTimeline } from "@/sections/about/AboutTimeline";
+import { AboutAwards } from "@/sections/about/AboutAwards";
+import { ContactCTA } from "@/sections/shared/ContactCTA";
 
 
 export const metadata: Metadata = {
@@ -19,7 +20,7 @@ export default function AboutPage() {
       <AboutMission />
       <AboutTimeline />
       <AboutAwards />
-      
+      <ContactCTA />
     </div>
   );
 }

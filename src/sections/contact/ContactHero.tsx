@@ -1,0 +1,64 @@
+"use client";
+
+import Image from "next/image";
+import { motion } from "framer-motion";
+import {
+  fadeInUp,
+  heroImageScale,
+  staggerContainer,
+  defaultTransition,
+  sectionViewport,
+} from "@/lib/animations";
+
+export function ContactHero() {
+  return (
+    <section className="relative min-h-[70svh] flex items-center overflow-hidden pt-32 pb-16">
+      <div className="absolute inset-0 z-10 bg-primary/50" />
+
+      <motion.div
+        className="absolute inset-0"
+        variants={heroImageScale}
+        initial="hidden"
+        animate="visible"
+      >
+        <Image
+          src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?w=1600&q=80"
+          alt="Modern home entrance"
+          fill
+          className="object-cover object-center"
+          priority
+          sizes="100vw"
+        />
+      </motion.div>
+
+      <div className="px-6 md:px-12 lg:px-24 w-full">
+        <div className="relative z-20 w-full max-w-7xl mx-auto">
+          <motion.div
+            className="flex flex-col items-start gap-6 max-w-2xl"
+            variants={staggerContainer}
+            initial="hidden"
+            animate="visible"
+            viewport={sectionViewport}
+          >
+            <motion.h1
+              variants={fadeInUp}
+              transition={defaultTransition}
+              className="text-primary-foreground font-display text-display"
+            >
+              Book your free tour
+            </motion.h1>
+
+            <motion.p
+              variants={fadeInUp}
+              transition={defaultTransition}
+              className="font-body text-body-lg text-primary-foreground max-w-lg"
+            >
+              Schedule a visit to your dream home. Our experts will guide you
+              through every step
+            </motion.p>
+          </motion.div>
+        </div>
+      </div>
+    </section>
+  );
+}

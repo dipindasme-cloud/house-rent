@@ -3,8 +3,8 @@ import { Playfair_Display, Plus_Jakarta_Sans } from "next/font/google";
 
 import "@/app/globals.css";
 
-import { Header } from "@/components/sections/shared/Header";
-import { Footer } from "@/components/sections/shared/Footer";
+import { Header } from "@/sections/shared/Header";
+import { Footer } from "@/sections/shared/Footer";
 
 const playfair = Playfair_Display({
   subsets: ["latin"],

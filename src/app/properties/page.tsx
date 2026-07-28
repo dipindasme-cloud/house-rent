@@ -1,7 +1,9 @@
 import type { Metadata } from "next";
 
-import { ListingsHero } from "@/components/sections/listings/ListingsHero";
-import { ListingsCards } from "@/components/sections/listings/ListingsCards";
+import { ListingsHero } from "@/sections/properties/ListingsHero";
+import { ListingsCards } from "@/sections/properties/ListingsCards";
+import { FAQ } from "@/sections/shared/FAQ";
+import { ContactCTA } from "@/sections/shared/ContactCTA";
 
 
 export const metadata: Metadata = {
@@ -15,7 +17,8 @@ export default function ListingsPage() {
     <div className="flex flex-col">
       <ListingsHero />
       <ListingsCards />
-    
+      <FAQ />
+      <ContactCTA />
     </div>
   );
 }

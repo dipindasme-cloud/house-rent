@@ -1,67 +1,66 @@
-import { type Variants, type Transition } from "framer-motion";
+import { type Variants, type Transition, type ViewportOptions } from "framer-motion";
 
-export const fadeIn: Variants = {
+export const LUXURY_EASE = [0.25, 0.1, 0.25, 1] as const;
+
+export const staggerContainer: Variants = {
   hidden: { opacity: 0 },
-  visible: { opacity: 1 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.12,
+      delayChildren: 0.08,
+    },
+  },
+};
+
+export const staggerContainerFast: Variants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.06,
+      delayChildren: 0.04,
+    },
+  },
 };
 
 export const fadeInUp: Variants = {
   hidden: { opacity: 0, y: 24 },
-  visible: { opacity: 1, y: 0 },
-};
-
-export const fadeInDown: Variants = {
-  hidden: { opacity: 0, y: -24 },
-  visible: { opacity: 1, y: 0 },
-};
-
-export const fadeInLeft: Variants = {
-  hidden: { opacity: 0, x: -24 },
-  visible: { opacity: 1, x: 0 },
-};
-
-export const fadeInRight: Variants = {
-  hidden: { opacity: 0, x: 24 },
-  visible: { opacity: 1, x: 0 },
-};
-
-export const scaleIn: Variants = {
-  hidden: { opacity: 0, scale: 0.92 },
-  visible: { opacity: 1, scale: 1 },
-};
-
-export const staggerContainer: Variants = {
-  hidden: {},
   visible: {
-    transition: { staggerChildren: 0.12, delayChildren: 0.15 },
+    opacity: 1,
+    y: 0,
+    transition: { duration: 0.6, ease: LUXURY_EASE },
   },
 };
 
-export const staggerFast: Variants = {
-  hidden: {},
+export const fadeIn: Variants = {
+  hidden: { opacity: 0 },
   visible: {
-    transition: { staggerChildren: 0.06, delayChildren: 0.08 },
+    opacity: 1,
+    transition: { duration: 0.5, ease: LUXURY_EASE },
   },
 };
 
-export const cardHover = {
-  rest: { scale: 1, y: 0 },
-  hover: {
-    scale: 1.02,
-    y: -4,
-    transition: { type: "spring", stiffness: 300, damping: 24 },
+export const heroImageScale: Variants = {
+  hidden: { scale: 1.08 },
+  visible: {
+    scale: 1,
+    transition: { duration: 1.2, ease: LUXURY_EASE },
   },
+};
+
+export const buttonHoverTap = {
+  whileHover: { scale: 1.02 },
+  whileTap: { scale: 0.97 },
+  transition: { ease: LUXURY_EASE, duration: 0.2 },
 };
 
 export const defaultTransition: Transition = {
   duration: 0.5,
-  ease: [0.25, 0.1, 0.25, 1],
+  ease: LUXURY_EASE,
 };
 
-export const springTransition: Transition = {
-  type: "spring",
-  stiffness: 260,
-  damping: 24,
+export const sectionViewport: ViewportOptions = {
+  once: true,
+  amount: 0.2,
 };
-
-export const sectionViewport = { once: true, margin: "-80px" };

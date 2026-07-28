@@ -1,8 +1,9 @@
 import type { Metadata } from "next";
 
-import { ContactHero } from "@/components/sections/contact/ContactHero";
-import { ContactForm } from "@/components/sections/contact/ContactForm";
-import { ContactDetails } from "@/components/sections/contact/ContactDetails";
+import { ContactHero } from "@/sections/contact/ContactHero";
+import { ContactForm } from "@/sections/contact/ContactForm";
+import { ContactDetails } from "@/sections/contact/ContactDetails";
+import { FAQ } from "@/sections/shared/FAQ";
 
 export const metadata: Metadata = {
   title: "Contact Us",
@@ -18,15 +19,16 @@ export default function ContactPage() {
       <section className="px-[1.5rem] md:px-[3rem] lg:px-[6rem] py-[4rem] md:py-[6rem]">
         <div className="max-w-[80rem] mx-auto">
           <div className="flex flex-col lg:flex-row gap-[4rem]">
-            <div className="flex-1">
-              <ContactForm />
-            </div>
             <div className="w-full lg:w-[24rem] shrink-0">
               <ContactDetails />
+            </div>
+            <div className="flex-1">
+              <ContactForm />
             </div>
           </div>
         </div>
       </section>
+      <FAQ />
     </div>
   );
 }

@@ -1,0 +1,111 @@
+@import "tailwindcss";
+
+:root {
+  --background: #000000;
+  --foreground: #ffffff;
+  --muted: #737373;
+  --muted-400: #9ca3af;
+  --muted-600: #4b5563;
+  --border: #1a1a1a;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-muted: var(--muted);
+  --color-muted-400: var(--muted-400);
+  --color-muted-600: var(--muted-600);
+  --color-border: var(--border);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: rgba(255, 255, 255, 0.2);
+  color: #fafafa;
+}
+
+/* ── Typography System (Pure rem-based fluid scales) ─────────────────── */
+
+/* 48px to 88px */
+.t-display-hero {
+  font-size: clamp(3rem, 1.45rem + 6.6vw, 5.5rem);
+  line-height: 1.05;
+  font-weight: 700;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+/* 36px to 60px */
+.t-display {
+  font-size: clamp(2.25rem, 1.55rem + 3vw, 3.75rem);
+  line-height: 1.1;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+}
+
+/* 24px to 36px */
+.t-heading {
+  font-size: clamp(1.5rem, 1.15rem + 1.5vw, 2.25rem);
+  line-height: 1.2;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* 18px to 22px */
+.t-subheading {
+  font-size: clamp(1.125rem, 1rem + 0.5vw, 1.375rem);
+  line-height: 1.35;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+
+/* 12px to 13px */
+.t-label {
+  font-size: clamp(0.75rem, 0.72rem + 0.12vw, 0.8125rem);
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: 0.12em; /* Elegant luxury letter spacing */
+  text-transform: uppercase;
+}
+
+/* 17px to 20px */
+.t-body-lg {
+  font-size: clamp(1.0625rem, 0.96rem + 0.4vw, 1.25rem);
+  line-height: 1.6;
+  font-weight: 400;
+  letter-spacing: -0.005em;
+}
+
+/* 16px to 18px */
+.t-body {
+  font-size: clamp(1rem, 0.95rem + 0.25vw, 1.125rem);
+  line-height: 1.6;
+  font-weight: 400;
+}
+
+/* 13px to 14px */
+.t-body-sm {
+  font-size: clamp(0.8125rem, 0.78rem + 0.12vw, 0.875rem);
+  line-height: 1.5;
+  font-weight: 400;
+  color: var(--color-muted-400);
+}
+
+/* 11px to 12px */
+.t-micro {
+  font-size: clamp(0.6875rem, 0.65rem + 0.12vw, 0.75rem);
+  line-height: 1.4;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}

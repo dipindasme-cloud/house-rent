@@ -47,7 +47,7 @@ export function JournalHero({ article }: JournalHeroProps) {
                 <span className="font-body text-eyebrow">
                   {article.category}
                 </span>
-                <span className="w-1 h-1 rounded-full bg-border" />
+                <span className="w-1 h-1 rounded-full bg-border-light" />
                 <span className="font-body text-caption text-muted-foreground">
                   {article.readTime}
                 </span>
@@ -70,7 +70,7 @@ export function JournalHero({ article }: JournalHeroProps) {
                   className="inline-flex items-center gap-2 text-body font-semibold text-accent hover:text-accent-hover transition-colors duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 rounded-sm"
                 >
                   Read Article
-                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                  <svg className="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
                     <line x1="5" y1="12" x2="19" y2="12" />
                     <polyline points="12 5 19 12 12 19" />
                   </svg>

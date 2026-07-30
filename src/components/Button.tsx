@@ -14,15 +14,15 @@ const variantStyles: Record<ButtonVariant, string> = {
   primary:
     "bg-primary text-primary-foreground hover:opacity-90 active:opacity-80",
   secondary:
-    "bg-muted text-foreground border border-border hover:bg-surface-hover",
+    "bg-surface-secondary text-foreground border border-border-light hover:bg-surface-hover",
   outline:
-    "bg-transparent text-primary border border-primary hover:bg-muted",
+    "bg-transparent text-primary border border-primary hover:bg-surface-secondary",
 };
 
 const sizeStyles: Record<ButtonSize, string> = {
-  sm: "py-2 px-4 text-[0.8125rem] gap-1.5 rounded-lg",
-  md: "py-3 px-6 text-[0.9375rem] gap-2 rounded-xl",
-  lg: "py-4 px-8 text-[1.0625rem] gap-2.5 rounded-2xl",
+  sm: "py-2 px-4 text-caption gap-1.5 rounded-lg",
+  md: "py-3 px-6 text-body gap-2 rounded-xl",
+  lg: "py-4 px-8 text-body-lg gap-2.5 rounded-2xl",
 };
 
 export function Button({

@@ -33,7 +33,7 @@ const steps = [
 export function ConciergeSteps() {
   return (
     <motion.section
-      className="w-full py-[clamp(3rem,_1.5rem_+_4vw,_6rem)] bg-muted"
+      className="w-full py-8 md:py-12 lg:py-14 bg-surface-secondary"
       variants={staggerContainer}
       initial="hidden"
       whileInView="visible"
@@ -93,7 +93,7 @@ export function ConciergeSteps() {
                     <h3 className="text-h3 font-body">
                       {step.title}
                     </h3>
-                    <p className="font-body text-body text-muted-foreground">
+                    <p className="font-body text-body text-foreground-secondary">
                       {step.description}
                     </p>
                   </div>

@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { JournalHero } from "@/sections/journal/JournalHero";
 import { JournalList } from "@/sections/journal/JournalList";
 import { NewsletterSignup } from "@/sections/journal/NewsletterSignup";
+import { ContactCTA } from "@/components/ContactCTA";
 import { JOURNAL_ARTICLES } from "@/data/journalData";
 
 export const metadata: Metadata = {
@@ -19,6 +20,7 @@ export default function JournalPage() {
       <JournalHero article={featuredArticle} />
       <JournalList />
       <NewsletterSignup />
+      <ContactCTA />
     </div>
   );
 }

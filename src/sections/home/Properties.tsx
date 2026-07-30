@@ -25,7 +25,7 @@ export function HomeListings() {
 
   return (
     <motion.section
-      className="py-16 md:py-24"
+      className="py-8 md:py-12 lg:py-14"
       initial="hidden"
       whileInView="visible"
       viewport={sectionViewport}
@@ -59,7 +59,7 @@ export function HomeListings() {
     `font-body text-caption py-2 px-4 rounded-lg transition-all duration-200 cursor-pointer font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 ` +
     (activeCategory === cat
       ? "bg-accent-rent text-accent-rent-foreground shadow-sm"
-      : "bg-muted text-muted-foreground border border-border hover:bg-surface-hover")
+      : "bg-surface-secondary text-muted-foreground border border-border-light hover:bg-surface-hover")
   }
 >
   {cat}

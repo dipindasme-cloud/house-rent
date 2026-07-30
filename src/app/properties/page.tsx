@@ -3,7 +3,7 @@ import type { Metadata } from "next";
 import { ListingsHero } from "@/sections/properties/ListingsHero";
 import { ListingsCards } from "@/sections/properties/ListingsCards";
 import { FAQ } from "@/sections/shared/FAQ";
-import { ContactCTA } from "@/sections/shared/ContactCTA";
+import { ContactCTA } from "@/components/ContactCTA";
 
 
 export const metadata: Metadata = {

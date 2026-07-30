@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Input } from "@/components/ui/Input";
-import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/Input";
+import { Textarea } from "@/components/Textarea";
+import { Button } from "@/components/Button";
 import {
   fadeInUp,
   staggerContainer,
@@ -105,7 +106,7 @@ export function InquiryForm() {
       <motion.div
         initial={{ opacity: 0, scale: 0.95 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="flex flex-col items-center gap-6 py-16 text-center"
+        className="flex flex-col items-center gap-6 py-8 md:py-12 lg:py-14 text-center"
       >
         <div className="w-16 h-16 rounded-full bg-accent flex items-center justify-center">
           <svg
@@ -114,6 +115,7 @@ export function InquiryForm() {
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
+            aria-hidden="true"
           >
             <path d="M20 6L9 17l-5-5" />
           </svg>
@@ -206,7 +208,7 @@ export function InquiryForm() {
           name="service"
           value={formData.service}
           onChange={handleChange}
-          className="w-full bg-surface text-foreground placeholder:text-muted-foreground border border-border outline-none transition-colors duration-200 focus:border-primary focus:ring-2 focus:ring-primary/20 py-[0.6875rem] px-4 text-[0.9375rem] rounded-xl leading-none cursor-pointer"
+          className="w-full bg-surface text-foreground placeholder:text-muted-foreground border border-border outline-none transition-colors duration-200 focus:border-primary focus:ring-2 focus:ring-primary/20 py-[0.6875rem] px-4 text-body rounded-xl leading-none cursor-pointer"
         >
           <option value="">Select a service</option>
           {SERVICES.map((s) => (
@@ -227,7 +229,7 @@ export function InquiryForm() {
             name="preferredTime"
             value={formData.preferredTime}
             onChange={handleChange}
-            className="w-full bg-surface text-foreground border border-border outline-none transition-colors duration-200 focus:border-primary focus:ring-2 focus:ring-primary/20 py-[0.6875rem] px-4 text-[0.9375rem] rounded-xl leading-none cursor-pointer"
+            className="w-full bg-surface text-foreground border border-border outline-none transition-colors duration-200 focus:border-primary focus:ring-2 focus:ring-primary/20 py-[0.6875rem] px-4 text-body rounded-xl leading-none cursor-pointer"
           >
             <option value="">Select time</option>
             <option value="Morning">Morning (9 AM - 12 PM)</option>
@@ -241,7 +243,7 @@ export function InquiryForm() {
         <label htmlFor="concierge-message" className="block font-body text-caption mb-2">
           Message
         </label>
-        <textarea
+        <Textarea
           id="concierge-message"
           name="message"
           placeholder="Tell us what you're looking for..."
@@ -251,7 +253,6 @@ export function InquiryForm() {
           required
           aria-invalid={!!errors.message}
           aria-describedby={errors.message ? "message-error" : undefined}
-          className="w-full bg-surface text-foreground placeholder:text-muted-foreground border border-border outline-none transition-colors duration-200 focus:border-primary focus:ring-2 focus:ring-primary/20 py-[0.6875rem] px-4 text-[0.9375rem] rounded-xl leading-relaxed resize-none"
         />
         {errors.message && (
           <p id="message-error" className="font-body text-caption text-danger mt-1">
@@ -279,7 +280,7 @@ export function InquiryForm() {
         >
           {loading ? (
             <span className="flex items-center gap-2">
-              <svg className="w-5 h-5 animate-spin" viewBox="0 0 24 24" fill="none">
+              <svg className="w-5 h-5 animate-spin" viewBox="0 0 24 24" fill="none" aria-hidden="true">
                 <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
                 <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4z" />
               </svg>

@@ -2,8 +2,8 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Input } from "@/components/ui/Input";
-import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/Input";
+import { Button } from "@/components/Button";
 import {
   fadeInUp,
   staggerContainer,
@@ -26,7 +26,7 @@ export function NewsletterSignup() {
   };
 
   return (
-    <section className="w-full py-[clamp(3rem,_1.5rem_+_4vw,_6rem)]">
+    <section className="w-full py-8 md:py-12 lg:py-14">
       <div className="px-6 md:px-12 lg:px-24">
         <motion.div
           className="max-w-7xl mx-auto"

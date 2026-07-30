@@ -3,7 +3,7 @@
 import { useState } from "react";
 import { motion } from "framer-motion";
 import { PropertyCard } from "@/sections/properties/PropertyCard";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/Button";
 import { SALE_PROPERTIES } from "@/data/HouseData";
 import {
   fadeInUp,
@@ -35,7 +35,7 @@ export function ListingsCards() {
 
   return (
     <motion.section
-      className="py-16 md:py-24"
+      className="py-8 md:py-12 lg:py-14"
       initial="hidden"
       whileInView="visible"
       viewport={sectionViewport}
@@ -65,7 +65,7 @@ export function ListingsCards() {
                   `font-body text-caption py-2 px-4 rounded-lg transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 ` +
                   (activeCategory === cat
                     ? "bg-primary text-primary-foreground"
-                    : "bg-muted text-muted-foreground border border-border hover:bg-surface-hover")
+                    : "bg-surface-secondary text-muted-foreground border border-border-light hover:bg-surface-hover")
                 }
               >
                 {cat === "All" ? "All" : cat}

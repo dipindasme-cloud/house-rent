@@ -24,7 +24,7 @@ export function JournalList() {
       : nonFeatured.filter((a) => a.category === activeCategory);
 
   return (
-    <section className="w-full py-[clamp(3rem,_1.5rem_+_4vw,_6rem)]">
+    <section className="w-full py-8 md:py-12 lg:py-14">
       <div className="px-6 md:px-12 lg:px-24">
         <motion.div
           className="max-w-7xl mx-auto flex flex-col gap-12"
@@ -41,7 +41,7 @@ export function JournalList() {
             <span className="font-body text-eyebrow">
               Latest Stories
             </span>
-            <h2 className="font-display text-h1">
+            <h2 className="font-display text-h2">
               Explore our journal
             </h2>
           </motion.div>
@@ -54,8 +54,8 @@ export function JournalList() {
                 className={
                   `font-body text-caption py-2 px-4 rounded-lg transition-all duration-200 cursor-pointer focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50 ` +
                   (activeCategory === cat
-                    ? "bg-accent text-accent-foreground shadow-sm"
-                    : "bg-muted text-muted-foreground border border-border hover:bg-surface-hover")
+                    ? "bg-accent !text-accent-foreground shadow-sm"
+                    : "bg-surface-secondary text-muted-foreground border border-border-light hover:bg-surface-hover")
                 }
               >
                 {cat}

@@ -207,7 +207,7 @@ export function PropertyCard({
             type="button"
             aria-label="Add to favourites"
             onClick={(e) => e.stopPropagation()}
-            className="flex h-10 w-10 items-center justify-center rounded-full border border-white/40 bg-surface/90 text-foreground shadow-md backdrop-blur-md transition-all hover:bg-surface hover:text-danger focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
+            className="flex h-10 w-10 items-center justify-center rounded-full border border-primary-foreground/40 bg-surface/90 text-foreground shadow-md backdrop-blur-md transition-all hover:bg-surface hover:text-danger focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary/50"
           >
             <HeartIcon />
           </button>
@@ -216,15 +216,15 @@ export function PropertyCard({
         {/* Bottom Overlay Text (Location & Price) */}
         <div className="absolute inset-x-4 bottom-4 z-10 flex items-end justify-between gap-3">
           <div className="flex flex-col gap-0.5">
-            <span className="text-caption font-bold tracking-wider text-white/95 uppercase drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
+            <span className="text-caption font-bold tracking-wider text-primary-foreground/95 uppercase drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
               {location}
             </span>
 
-            <div className="flex items-baseline gap-1.5 text-white">
-              <span className="text-2xl font-black text-white drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
+            <div className="flex items-baseline gap-1.5 text-primary-foreground">
+              <span className="text-2xl font-black text-primary-foreground drop-shadow-[0_2px_4px_rgba(0,0,0,0.9)]">
                 ₹{price}
               </span>
-              <span className="text-body font-bold text-slate-100 drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
+              <span className="text-body font-bold text-primary-foreground/90 drop-shadow-[0_1px_3px_rgba(0,0,0,0.9)]">
                 {priceUnit}
                 {priceSuffix ? ` ${priceSuffix}` : ""}
               </span>

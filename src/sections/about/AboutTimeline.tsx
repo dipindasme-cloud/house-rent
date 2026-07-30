@@ -2,6 +2,7 @@
 
 import { motion } from "framer-motion";
 import {
+  fadeIn,
   fadeInUp,
   staggerContainer,
   sectionViewport,
@@ -36,18 +37,18 @@ const milestones = [
 
 export function AboutTimeline() {
   return (
-    <section className="py-16 md:py-24 bg-muted">
+    <section className="py-8 md:py-12 lg:py-14 bg-surface-secondary">
       <div className="px-6 md:px-12 lg:px-24">
         <div className="max-w-7xl mx-auto flex flex-col gap-12">
         <motion.div
-          className="flex flex-col items-center gap-5 text-center"
+          className="flex flex-col items-start gap-4 text-left"
           initial="hidden"
           whileInView="visible"
           viewport={sectionViewport}
           variants={staggerContainer}
         >
           <motion.span
-            variants={fadeInUp}
+            variants={fadeIn}
             className="font-body text-eyebrow"
           >
             Our History

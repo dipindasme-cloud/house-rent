@@ -16,10 +16,10 @@ export default function ContactPage() {
     <div className="flex flex-col">
       <ContactHero />
 
-      <section className="px-[1.5rem] md:px-[3rem] lg:px-[6rem] py-[4rem] md:py-[6rem]">
-        <div className="max-w-[80rem] mx-auto">
-          <div className="flex flex-col lg:flex-row gap-[4rem]">
-            <div className="w-full lg:w-[24rem] shrink-0">
+      <section className="px-6 md:px-12 lg:px-24 py-16 md:py-24">
+        <div className="max-w-7xl mx-auto">
+          <div className="flex flex-col lg:flex-row gap-16">
+            <div className="w-full lg:w-96 shrink-0">
               <ContactDetails />
             </div>
             <div className="flex-1">

@@ -2,10 +2,12 @@ import type { Metadata } from "next";
 
 import { AboutHero } from "@/sections/about/AboutHero";
 import { AboutMission } from "@/sections/about/AboutMission";
+import { AboutValues } from "@/sections/about/AboutValues";
 import { AboutTimeline } from "@/sections/about/AboutTimeline";
+import { AboutTeam } from "@/sections/about/AboutTeam";
 import { AboutAwards } from "@/sections/about/AboutAwards";
-import { ContactCTA } from "@/sections/shared/ContactCTA";
-
+import { Testimonials } from "@/sections/shared/Testimonials";
+import { ContactCTA } from "@/components/ContactCTA";
 
 export const metadata: Metadata = {
   title: "About Us",
@@ -15,12 +17,15 @@ export const metadata: Metadata = {
 
 export default function AboutPage() {
   return (
-    <div className="flex flex-col">
+    <main className="flex flex-col min-h-screen">
       <AboutHero />
       <AboutMission />
+      <AboutValues />
       <AboutTimeline />
+      <AboutTeam />
       <AboutAwards />
+      <Testimonials heading="Hear from our community" />
       <ContactCTA />
-    </div>
+    </main>
   );
 }

@@ -35,7 +35,7 @@ export function JournalCard({ article, index = 0 }: JournalCardProps) {
       <div className="flex flex-col gap-3 p-5 md:p-6 flex-1">
         <div className="flex items-center gap-4 font-body text-caption text-muted-foreground">
           <span>{article.date}</span>
-          <span className="w-1 h-1 rounded-full bg-border" />
+          <span className="w-1 h-1 rounded-full bg-border-light" />
           <span>{article.readTime}</span>
         </div>
 
@@ -52,7 +52,7 @@ export function JournalCard({ article, index = 0 }: JournalCardProps) {
           className="inline-flex items-center gap-1.5 font-body text-caption font-semibold text-accent mt-2 opacity-0 -translate-x-2 group-hover:opacity-100 group-hover:translate-x-0 transition-all duration-300 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent/50 rounded-sm"
         >
           Read Article
-          <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+           <svg className="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
             <line x1="5" y1="12" x2="19" y2="12" />
             <polyline points="12 5 19 12 12 19" />
           </svg>

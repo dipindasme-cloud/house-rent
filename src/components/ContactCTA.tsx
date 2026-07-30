@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import { motion } from "framer-motion";
-import { Button } from "@/components/ui/Button";
+import { Button } from "@/components/Button";
 import {
   fadeIn,
   fadeInUp,
@@ -14,7 +14,7 @@ import {
 export function ContactCTA() {
   return (
     <motion.section
-      className="py-16 md:py-24"
+      className="py-14 md:py-20 lg:py-24"
       initial="hidden"
       whileInView="visible"
       viewport={sectionViewport}
@@ -28,7 +28,7 @@ export function ContactCTA() {
               className="relative w-full md:w-[45%] h-[350px] md:h-[400px] lg:h-[600px] shrink-0"
             >
               <Image
-                src="https://images.unsplash.com/photo-ISg6IeBqHlo?w=800&q=80&fit=crop"
+                src="https://images.unsplash.com/photo-1761839256545-4268b03606c0?q=80&w=1170&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
                 alt="Modern apartment building surrounded by greenery"
                 fill
                 className="object-cover"
@@ -56,7 +56,7 @@ export function ContactCTA() {
 
               <motion.p
                 variants={fadeInUp}
-                className="font-body text-body text-primary-foreground/70 max-w-md"
+                className="font-body text-body !text-primary-foreground/70 max-w-md"
               >
                 From penthouses to private villas, find a space that reflects
                 your lifestyle with our curated collection of luxury rentals.
@@ -66,7 +66,7 @@ export function ContactCTA() {
                 <Button
                   variant="outline"
                   size="lg"
-                  className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10"
+                  className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground/10 hover:text-primary"
                 >
                   <svg
                     className="w-[1.125rem] h-[1.125rem] shrink-0"
@@ -74,6 +74,7 @@ export function ContactCTA() {
                     fill="none"
                     stroke="currentColor"
                     strokeWidth="2"
+                    aria-hidden="true"
                   >
                     <rect x="3" y="4" width="18" height="18" rx="2" ry="2" />
                     <line x1="16" y1="2" x2="16" y2="6" />

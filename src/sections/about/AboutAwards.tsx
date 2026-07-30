@@ -84,51 +84,20 @@ export function AboutAwards() {
   const statsInView = useInView(statsRef, { once: true, amount: 0.2 });
 
   return (
-    <section className="relative overflow-hidden">
+    <motion.section
+      className="relative overflow-hidden"
+      variants={staggerContainer}
+      initial="hidden"
+      whileInView="visible"
+      viewport={sectionViewport}
+    >
       <div className="absolute inset-0 bg-primary" />
       <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: "url(\"data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='1'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E\")" }} />
 
-      <div className="relative z-10 py-16 md:py-24">
+      <div className="relative z-10 py-8 md:py-12 lg:py-14">
         <div className="px-6 md:px-12 lg:px-24">
-          <div className="max-w-7xl mx-auto flex flex-col gap-16">
-          <motion.div
-            ref={statsRef}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12"
-            initial="hidden"
-            whileInView="visible"
-            viewport={sectionViewport}
-            variants={staggerContainer}
-          >
-            {stats.map((stat) => (
-              <motion.div
-                key={stat.label}
-                variants={fadeInUp}
-                className="flex flex-col items-center gap-2 text-center"
-              >
-                <span className="font-display text-display text-primary-foreground">
-                  <AnimatedCounter
-                    target={stat.value}
-                    suffix={stat.suffix}
-                    prefix={stat.prefix}
-                    inView={statsInView}
-                  />
-                </span>
-                <span className="font-body text-caption text-primary-foreground/80 max-w-40">
-                  {stat.label}
-                </span>
-              </motion.div>
-            ))}
-          </motion.div>
+          <div className="max-w-7xl mx-auto flex flex-col gap-12">
 
-          <div className="w-full h-px bg-border" />
-
-          <motion.div
-            className="flex flex-col gap-10"
-            initial="hidden"
-            whileInView="visible"
-            viewport={sectionViewport}
-            variants={staggerContainer}
-          >
             <motion.div
               variants={fadeInUp}
               className="flex flex-col items-center gap-5 text-center"
@@ -142,6 +111,35 @@ export function AboutAwards() {
             </motion.div>
 
             <motion.div
+              ref={statsRef}
+              className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12"
+              initial="hidden"
+              whileInView="visible"
+              viewport={sectionViewport}
+              variants={staggerContainer}
+            >
+              {stats.map((stat) => (
+                <motion.div
+                  key={stat.label}
+                  variants={fadeInUp}
+                  className="flex flex-col items-center gap-2 text-center"
+                >
+                  <span className="font-display text-h2 font-bold tracking-tight text-primary-foreground">
+                    <AnimatedCounter
+                      target={stat.value}
+                      suffix={stat.suffix}
+                      prefix={stat.prefix}
+                      inView={statsInView}
+                    />
+                  </span>
+                  <span className="font-body text-caption text-primary-foreground/80 max-w-40">
+                    {stat.label}
+                  </span>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            <motion.div
               className="grid grid-cols-1 md:grid-cols-3 gap-6"
               variants={staggerContainer}
             >
@@ -149,30 +147,33 @@ export function AboutAwards() {
                 <motion.div
                   key={award.title}
                   variants={fadeInUp}
-                  className="group relative flex flex-col gap-4 p-6 md:p-8 bg-muted backdrop-blur rounded-3xl border border-border hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
+                  className="group flex flex-col gap-4 p-6 md:p-8 bg-surface backdrop-blur rounded-3xl border border-border hover:shadow-xl hover:-translate-y-1 transition-all duration-300"
                 >
-                    <div className="absolute top-0 right-0 w-16 h-16 bg-muted rounded-bl-3xl rounded-tr-3xl flex items-center justify-center">
-                    <svg className="w-6 h-6 text-muted-foreground" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-                      <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
-                    </svg>
+                  <div className="flex items-start justify-between gap-4">
+                    <div className="flex flex-col gap-2">
+                      <span className="font-body text-eyebrow text-foreground">
+                        {award.year}
+                      </span>
+                      <h3 className="text-h3 font-body">
+                        {award.title}
+                      </h3>
+                    </div>
+                    <div className="w-12 h-12 bg-primary rounded-xl flex items-center justify-center shrink-0">
+                      <svg className="w-5 h-5 text-primary-foreground" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                        <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z" />
+                      </svg>
+                    </div>
                   </div>
-
-                  <span className="font-body text-eyebrow">
-                    {award.year}
-                  </span>
-                  <h3 className="text-h3 font-body pr-12">
-                    {award.title}
-                  </h3>
-                  <p className="font-body text-caption m-0">
+                  <p className="font-body text-body text-muted-foreground">
                     {award.description}
                   </p>
                 </motion.div>
               ))}
             </motion.div>
-          </motion.div>
+
           </div>
         </div>
       </div>
-    </section>
+    </motion.section>
   );
 }

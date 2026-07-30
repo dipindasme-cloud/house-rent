@@ -3,6 +3,7 @@
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
+  fadeIn,
   fadeInUp,
   staggerContainer,
   defaultTransition,
@@ -50,18 +51,18 @@ const missionData = [
 
 export function AboutMission() {
   return (
-    <section className="py-16 md:py-24">
+    <section className="py-8 md:py-12 lg:py-14">
       <div className="px-6 md:px-12 lg:px-24">
         <div className="max-w-7xl mx-auto flex flex-col gap-12">
         <motion.div
-          className="flex flex-col items-center gap-5 text-center"
+          className="flex flex-col items-start gap-4 text-left"
           initial="hidden"
           whileInView="visible"
           viewport={sectionViewport}
           variants={staggerContainer}
         >
           <motion.span
-            variants={fadeInUp}
+            variants={fadeIn}
             transition={defaultTransition}
             className="font-body text-eyebrow"
           >
@@ -108,7 +109,7 @@ export function AboutMission() {
                 transition={{ ...defaultTransition, delay: index * 0.15 }}
                 className="flex gap-5 items-start"
               >
-                <div className="shrink-0 w-12 h-12 rounded-xl bg-muted text-accent-rent flex items-center justify-center">
+                <div className="shrink-0 w-12 h-12 rounded-xl bg-accent-light text-primary flex items-center justify-center">
                   {item.icon}
                 </div>
                 <div className="flex flex-col gap-1.5">
@@ -118,7 +119,7 @@ export function AboutMission() {
                   <h3 className="text-h3 font-body">
                     {item.title}
                   </h3>
-                  <p className="font-body text-caption text-muted-foreground">
+                  <p className="font-body text-caption text-foreground-secondary">
                     {item.description}
                   </p>
                 </div>

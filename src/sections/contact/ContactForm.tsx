@@ -2,8 +2,9 @@
 
 import { useState } from "react";
 import { motion } from "framer-motion";
-import { Input } from "@/components/ui/Input";
-import { Button } from "@/components/ui/Button";
+import { Input } from "@/components/Input";
+import { Textarea } from "@/components/Textarea";
+import { Button } from "@/components/Button";
 import {
   fadeInUp,
   staggerContainer,
@@ -49,6 +50,7 @@ export function ContactForm() {
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
+            aria-hidden="true"
           >
             <path d="M20 6L9 17l-5-5" />
           </svg>
@@ -75,10 +77,11 @@ export function ContactForm() {
     >
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <motion.div variants={fadeInUp} transition={defaultTransition}>
-          <label className="block font-body text-caption mb-2">
+          <label htmlFor="contact-name" className="block font-body text-caption mb-2">
             Full Name
           </label>
           <Input
+            id="contact-name"
             type="text"
             name="name"
             placeholder="John Doe"
@@ -89,10 +92,11 @@ export function ContactForm() {
         </motion.div>
 
         <motion.div variants={fadeInUp} transition={defaultTransition}>
-          <label className="block font-body text-caption mb-2">
+          <label htmlFor="contact-email" className="block font-body text-caption mb-2">
             Email Address
           </label>
           <Input
+            id="contact-email"
             type="email"
             name="email"
             placeholder="john@example.com"
@@ -105,10 +109,11 @@ export function ContactForm() {
 
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
         <motion.div variants={fadeInUp} transition={defaultTransition}>
-          <label className="block font-body text-caption mb-2">
+          <label htmlFor="contact-phone" className="block font-body text-caption mb-2">
             Phone Number
           </label>
           <Input
+            id="contact-phone"
             type="tel"
             name="phone"
             placeholder="+91 99999 99999"
@@ -119,15 +124,16 @@ export function ContactForm() {
         </motion.div>
 
         <motion.div variants={fadeInUp} transition={defaultTransition}>
-          <label className="block font-body text-caption mb-2">
+          <label htmlFor="contact-property-type" className="block font-body text-caption mb-2">
             Property Type
           </label>
           <select
+            id="contact-property-type"
             name="propertyType"
             value={formData.propertyType}
             onChange={handleChange}
             required
-            className="w-full bg-surface text-foreground placeholder:text-muted-foreground border border-border outline-none transition-colors duration-200 focus:border-border focus:ring-2 focus:ring-primary/20 py-[0.6875rem] px-4 text-[0.9375rem] rounded-xl leading-none cursor-pointer"
+            className="w-full bg-surface text-foreground placeholder:text-muted-foreground border border-border outline-none transition-colors duration-200 focus:border-primary focus:ring-2 focus:ring-primary/20 py-[0.6875rem] px-4 text-body rounded-xl leading-none cursor-pointer"
           >
             <option value="">Select type</option>
             <option value="Villa">Villa</option>
@@ -139,10 +145,11 @@ export function ContactForm() {
       </div>
 
       <motion.div variants={fadeInUp} transition={defaultTransition}>
-        <label className="block font-body text-caption mb-2">
+        <label htmlFor="contact-date" className="block font-body text-caption mb-2">
           Preferred Date
         </label>
         <Input
+          id="contact-date"
           type="date"
           name="preferredDate"
           value={formData.preferredDate}
@@ -152,16 +159,16 @@ export function ContactForm() {
       </motion.div>
 
       <motion.div variants={fadeInUp} transition={defaultTransition}>
-        <label className="block font-body text-caption mb-2">
+        <label htmlFor="contact-message" className="block font-body text-caption mb-2">
           Message
         </label>
-        <textarea
+        <Textarea
+          id="contact-message"
           name="message"
           placeholder="Tell us what you're looking for..."
           value={formData.message}
           onChange={handleChange}
           rows={4}
-          className="w-full bg-surface text-foreground placeholder:text-muted-foreground border border-border outline-none transition-colors duration-200 focus:border-border focus:ring-2 focus:ring-primary/20 py-[0.6875rem] px-4 text-[0.9375rem] rounded-xl leading-relaxed resize-none"
         />
       </motion.div>
 
@@ -173,6 +180,7 @@ export function ContactForm() {
             fill="none"
             stroke="currentColor"
             strokeWidth="2"
+            aria-hidden="true"
           >
             <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
           </svg>
